@@ -145,5 +145,11 @@
     <Resource Include="Resources\HomeIcon.png" />
     <Resource Include="Resources\UserIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EducationApp.Classes\App.Classes.csproj">
+      <Project>{196951B2-F36E-4D93-90A0-AFC8EA5B40BF}</Project>
+      <Name>App.Classes</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

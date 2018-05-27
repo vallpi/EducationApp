@@ -23,8 +23,8 @@
         </TextBlock>
         <TextBlock FontSize="16" Grid.Row="1" Grid.Column="0" Text="Логин" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="15"/>
         <TextBlock FontSize="16" Grid.Row="2" Grid.Column="0" Text="Пароль" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="15"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
-        <PasswordBox Grid.Row="2" Grid.Column="1" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <TextBox Name="TextBoxLogin" Grid.Row="1" Grid.Column="1" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <PasswordBox Name="PasswordBox" Grid.Row="2" Grid.Column="1" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
         <Button Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" Content="Войти" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Width="85" Height="25" Click="ButtonLogIn_Click"/>
 
     </Grid>

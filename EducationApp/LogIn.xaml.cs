@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App.Classes;
+using App.Classes.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,7 @@ namespace EducationApp
     /// </summary>
     public partial class LogIn : Page
     {
+        IRepository _repo = Factory.Instance.GetRepository();
         public LogIn()
         {
             InitializeComponent();
@@ -27,8 +30,16 @@ namespace EducationApp
 
         private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
         {
-            AppWindow app = new AppWindow();
-            app.ShowDialog();
+            if (TextBoxLogin.Text == null)
+                MessageBox.Show("Введите логин");
+            if (PasswordBox.Password.ToString() == null)
+                MessageBox.Show("Введите пароль");
+            // Авторизация
+            if (_repo.Authorization(TextBoxLogin.Text, PasswordBox.Password.ToString()))
+            {
+                AppWindow app = new AppWindow();
+                app.ShowDialog();
+            }
         }
     }
 }

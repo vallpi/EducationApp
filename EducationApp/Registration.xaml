@@ -23,10 +23,10 @@
         <TextBlock HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" Text="Логин" FontSize="16" VerticalAlignment="Center" Margin="15"/>
         <TextBlock HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" Text="Электронная почта" FontSize="16" VerticalAlignment="Center" Margin="15"/>
         <TextBlock HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0" Text="Пароль" FontSize="16" VerticalAlignment="Center" Margin="15"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
-        <PasswordBox Grid.Column="1" Grid.Row="3" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <TextBox Name="TextBoxFullName" Grid.Column="1" Grid.Row="0" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <TextBox Name="TextBoxLogin" Grid.Column="1" Grid.Row="1" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <TextBox Name="TextBoxEmail" Grid.Column="1" Grid.Row="2" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="3" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
         <Button Content="Зарегистрироваться" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Width="160" Height="25" Click="ButtonRegistration_Click"/>
 
 
