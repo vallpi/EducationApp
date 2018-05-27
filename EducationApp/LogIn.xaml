@@ -1,0 +1,31 @@
+﻿<Page x:Class="EducationApp.LogIn"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EducationApp"
+      mc:Ignorable="d" ShowsNavigationUI="False"
+      Title="LogIn">
+
+    <Grid Background="#FFF8DC">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock FontSize="16" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            Ещё не создали аккаунт? <Hyperlink Foreground="Black" NavigateUri="Registration.xaml">Зарегистрируйтесь!</Hyperlink>
+        </TextBlock>
+        <TextBlock FontSize="16" Grid.Row="1" Grid.Column="0" Text="Логин" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="15"/>
+        <TextBlock FontSize="16" Grid.Row="2" Grid.Column="0" Text="Пароль" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="15"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <PasswordBox Grid.Row="2" Grid.Column="1" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <Button Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" Content="Войти" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Width="85" Height="25" Click="ButtonLogIn_Click"/>
+
+    </Grid>
+</Page>

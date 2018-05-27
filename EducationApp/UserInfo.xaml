@@ -1,0 +1,23 @@
+﻿<Page x:Class="EducationApp.UserInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EducationApp"
+      mc:Ignorable="d" ShowsNavigationUI="False"
+      d:DesignHeight="480" d:DesignWidth="350"
+      Title="UserInfo">
+
+    <Grid Background="#FFF8DC">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Полное Имя" FontSize="25"/>
+        <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="логин" FontSize="16"/>
+        <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="почта" FontSize="16"/>
+        <Image Source="Resources/UserIcon.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="300" VerticalAlignment="Center" Width="300"/>
+    </Grid>
+</Page>
