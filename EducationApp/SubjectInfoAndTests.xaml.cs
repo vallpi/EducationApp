@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace EducationApp
 {
     /// <summary>
-    /// Interaction logic for UserAndProgress.xaml
+    /// Interaction logic for SubjectInfoAndTests.xaml
     /// </summary>
-    public partial class UserAndProgress : Page
+    public partial class SubjectInfoAndTests : Page
     {
-        public UserAndProgress()
+        public SubjectInfoAndTests()
         {
             InitializeComponent();
         }
