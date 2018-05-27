@@ -30,16 +30,26 @@ namespace EducationApp
 
         private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
         {
-            if (TextBoxLogin.Text == null)
+            if (string.IsNullOrWhiteSpace(TextBoxLogin.Text))
+            {
                 MessageBox.Show("Введите логин");
-            if (PasswordBox.Password.ToString() == null)
+                TextBoxLogin.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(PasswordBox.Password.ToString()))
+            {
                 MessageBox.Show("Введите пароль");
+                PasswordBox.Focus();
+                return;
+            }
             // Авторизация
             if (_repo.Authorization(TextBoxLogin.Text, PasswordBox.Password.ToString()))
             {
                 AppWindow app = new AppWindow();
                 app.ShowDialog();
             }
+            else
+                MessageBox.Show("Неверный Email или пароль");
         }
     }
 }

@@ -31,18 +31,32 @@ namespace EducationApp
         private void ButtonRegistration_Click(object sender, RoutedEventArgs e)
         {
             // Проверка заполненности боксов и регистрация пользователя
-            if (TextBoxFullName.Text == null)
+            if (string.IsNullOrWhiteSpace(TextBoxFullName.Text))
+            {
                 MessageBox.Show("Введите имя");
-            if (TextBoxEmail.Text == null)
+                TextBoxFullName.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(TextBoxEmail.Text))
+            {
                 MessageBox.Show("Введите Email");
-            if (PasswordBox.Password.ToString() == null)
+                TextBoxEmail.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(PasswordBox.Password.ToString()))
+            {
                 MessageBox.Show("Введите пароль");
-            if (TextBoxLogin.Text == null)
+                PasswordBox.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(TextBoxLogin.Text))
+            {
                 MessageBox.Show("Введите логин");
+                TextBoxLogin.Focus();
+                return;
+            }
             if (!_repo.Registration(TextBoxFullName.Text, TextBoxEmail.Text, TextBoxLogin.Text, PasswordBox.Password.ToString()))
-                MessageBox.Show("Данный email уже зарегистрирован");
-            else
-            { };
+            { MessageBox.Show("Данный Email уже зарегистрирован"); }
         }
     }
 }
