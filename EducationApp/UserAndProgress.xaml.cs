@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App.Classes;
+using App.Classes.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,28 @@ namespace EducationApp
     /// </summary>
     public partial class UserAndProgress : Page
     {
+        IRepository _repo = Factory.Instance.GetRepository();
         public UserAndProgress()
         {
             InitializeComponent();
+            Subject1.Text = _repo.GetSubject(1);
+            Subject2.Text = _repo.GetSubject(2);
+            Subject3.Text = _repo.GetSubject(3);
+        }
+
+        private void HyperLink1_Click(object sender, RoutedEventArgs e)
+        {
+            _repo.SelectSubject(1);
+        }
+
+        private void HyperLink2_Click(object sender, RoutedEventArgs e)
+        {
+            _repo.SelectSubject(2);
+        }
+
+        private void HyperLink3_Click(object sender, RoutedEventArgs e)
+        {
+            _repo.SelectSubject(3);
         }
     }
 }

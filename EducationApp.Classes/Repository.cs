@@ -21,6 +21,7 @@ namespace App.Classes
 
         private Data _data;
         private User _authorizedUser;
+        private Subject SelectedSubject;
         private const string DataFolder = "Data";
         private const string FileName = "Info.json";
         // Кодировка пароля
@@ -40,6 +41,50 @@ namespace App.Classes
                 return true;
             }
             return false;
+        }
+        // Получение информации о пользователе
+        public string GetUserData(string requiredData)
+        {
+            string UserData = null;
+            switch(requiredData)
+            {
+                case "FullName":
+                    UserData = _authorizedUser.FullName;
+                    break;
+                case "Email":
+                    UserData = _authorizedUser.Email;
+                    break;
+                case "Password":
+                    UserData = _authorizedUser.Password;
+                    break;
+                case "Login":
+                    UserData = _authorizedUser.Login;
+                    break;
+            }
+            return UserData;
+        }
+        // Получение информации о предметах
+        public string GetSubject(int Id)
+        {
+            var Subject = _data.Subjects.Where(n => n.Id == Id).Select(n => n.Name).First();
+            return Subject;
+        }
+        //Сохранение выбранного предмета для перехода по гиперссылке
+        public void SelectSubject(int Id)
+        {
+            SelectedSubject = _data.Subjects.FirstOrDefault(n => n.Id == Id);
+            return;
+        }
+        //Получение выбранного предмета
+        public List<string> ReturnSubjectTopics()
+        {
+            var Topics = SelectedSubject.Topics;
+            List<string> TopicNames = new List<string>();
+            foreach (var topic in Topics)
+            {
+                TopicNames.Add(topic.Name);
+            }
+            return TopicNames;
         }
         //Регистрация
         public bool Registration(string fullname, string email, string login, string password)
@@ -105,16 +150,29 @@ namespace App.Classes
             }
             foreach(var subject in _data.Subjects)
             {
-                using (var sr = new StreamReader(GetPath(subject.Name)))
+                try
                 {
-                    using (var jsonReader = new JsonTextReader(sr))
+                    using (var sr = new StreamReader(GetPath(subject.Name)))
                     {
-                        var serializer = new JsonSerializer();
-                        subject.Topics = serializer.Deserialize<List<Topic>>(jsonReader);
+                        using (var jsonReader = new JsonTextReader(sr))
+                        {
+                            var serializer = new JsonSerializer();
+                            subject.Topics = serializer.Deserialize<List<Topic>>(jsonReader);
+                            foreach(var topic in subject.Topics)
+                            {
+                                if (topic.WriteAnswerQuestions == null)
+                                    topic.WriteAnswerQuestions = new List<QuestionModel2>();
+                                if (topic.ChooseAnswerQuestions == null)
+                                    topic.ChooseAnswerQuestions = new List<QuestionModel1>();
+                            }
+                        }
                     }
                 }
+                catch
+                {
+                    subject.Topics = new List<Topic>();
+                }
             }
-
         }
     }
 }

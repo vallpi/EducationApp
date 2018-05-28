@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App.Classes;
+using App.Classes.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,14 @@ namespace EducationApp
     /// </summary>
     public partial class UserInfo : Page
     {
+        IRepository _repo = Factory.Instance.GetRepository();
+
         public UserInfo()
         {
             InitializeComponent();
+            TextBlockFullName.Text = _repo.GetUserData("FullName");
+            TextBlockEmail.Text = _repo.GetUserData("Email");
+            TextBlockLogin.Text = _repo.GetUserData("Login");
         }
     }
 }

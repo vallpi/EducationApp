@@ -27,8 +27,8 @@
         <Rectangle Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" Fill="#B22222"></Rectangle>
         <Rectangle Grid.Column="5" Grid.RowSpan="2" Grid.Row="1" Fill="#B22222"></Rectangle>
         <Rectangle Grid.Row="0" Grid.ColumnSpan="9" Grid.Column="0" Fill="#B22222"></Rectangle>
-        <ListBox TextBlock.LineHeight="30" Background="#FFF8DC" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" Height="auto" VerticalAlignment="Center" Width="330"  BorderThickness="0">
-            <TextBlock>Здесь названия тем</TextBlock></ListBox>
+        <ListBox Language="Russian" Name="ListBoxTopics" TextBlock.LineHeight="30" Background="#FFF8DC" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" Height="auto" VerticalAlignment="Center" Width="330"  BorderThickness="0">
+            </ListBox>
         <ScrollViewer Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="1">
             <TextBlock FontSize="16" Width="auto" Height="auto" Text="Здесь теория" Margin="5" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top"/>
         </ScrollViewer>
@@ -40,8 +40,8 @@
                 <Image Source="Resources/HomeIcon.png" Height="30" Width="30"></Image>
             </Hyperlink>
         </Label>
-        <TextBlock Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="0" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink Foreground="#FFF8DC" NavigateUri="SubjectInfoAndTests.xaml">Предмет 1</Hyperlink></TextBlock>
-        <TextBlock Grid.ColumnSpan="3" Grid.Column="4" Grid.Row="0" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink Foreground="#FFF8DC" NavigateUri="SubjectInfoAndTests.xaml">Предмет 2</Hyperlink></TextBlock>
-        <TextBlock Grid.ColumnSpan="2" Grid.Column="7" Grid.Row="0" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink Foreground="#FFF8DC" NavigateUri="SubjectInfoAndTests.xaml">Предмет 3</Hyperlink></TextBlock>
+        <TextBlock Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="0" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink Click="Hyperlink1_Click" Foreground="#FFF8DC" NavigateUri="SubjectInfoAndTests.xaml"><TextBlock Name="Subject1" Text="Предмет 1"/></Hyperlink></TextBlock>
+        <TextBlock Grid.ColumnSpan="3" Grid.Column="4" Grid.Row="0" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink Click="Hyperlink2_Click" Foreground="#FFF8DC" NavigateUri="SubjectInfoAndTests.xaml"><TextBlock Name="Subject2" Text="Предмет 2"/></Hyperlink></TextBlock>
+        <TextBlock Grid.ColumnSpan="2" Grid.Column="7" Grid.Row="0" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink Click="Hyperlink3_Click" Foreground="#FFF8DC" NavigateUri="SubjectInfoAndTests.xaml"><TextBlock Name="Subject3" Text="Предмет 3"/></Hyperlink></TextBlock>
     </Grid>
 </Page>

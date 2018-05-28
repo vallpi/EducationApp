@@ -57,6 +57,8 @@ namespace EducationApp
             }
             if (!_repo.Registration(TextBoxFullName.Text, TextBoxEmail.Text, TextBoxLogin.Text, PasswordBox.Password.ToString()))
             { MessageBox.Show("Данный Email уже зарегистрирован"); }
+            AppWindow app = new AppWindow();
+            app.ShowDialog();
         }
     }
 }

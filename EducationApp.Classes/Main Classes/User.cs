@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Classes.Main_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,6 @@ namespace App.Classes
         public string Password { get; set; }
         public List<Subject> Subjects { get; set; }
         public bool Hash { get; set; }
+        public List<TestResult> TestResults { get; set; }
     }
 }

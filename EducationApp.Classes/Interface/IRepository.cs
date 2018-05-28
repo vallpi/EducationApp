@@ -10,5 +10,9 @@ namespace App.Classes.Interface
     {
         bool Authorization(string login, string password);
         bool Registration(string fullname, string email, string login, string password);
+        string GetUserData(string requiredData);
+        string GetSubject(int Id);
+        List<string> ReturnSubjectTopics();
+        void SelectSubject(int Id);
     }
 }

@@ -1,18 +1,22 @@
 {
   "Subjects": [
     {
+      "Id": "1",
       "Name": "Memes"
     },
     {
+      "Id": "2",
       "Name": "Mahboroda"
     },
     {
+      "Id": "3",
       "Name": "Kris+Twister=disastah"
     }
   ],
   "Users": [
     {
       "Email": "Email1",
+      "Login": "Login1",
       "FullName": "FullName1",
       "Password": "Password1"
     }
