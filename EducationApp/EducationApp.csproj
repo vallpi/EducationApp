@@ -147,6 +147,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\Kris+Twister=disastah.json" />
+    <None Include="Data\Mahboroda.json" />
+    <None Include="Data\Memes.json" />
+    <None Include="Data\Subjects.json" />
+    <None Include="Data\Users.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

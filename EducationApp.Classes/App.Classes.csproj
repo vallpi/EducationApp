@@ -57,10 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Data\Info.json" />
-    <None Include="Data\Kris+Twister=disastah.json" />
-    <None Include="Data\Mahboroda.json" />
-    <None Include="Data\Memes.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

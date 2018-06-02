@@ -1,4 +1,12 @@
 {
+  "Users": [
+    {
+      "Email": "Email1",
+      "Login": "Login1",
+      "FullName": "FullName1",
+      "Password": "Password1"
+    }
+  ],
   "Subjects": [
     {
       "Id": "1",
@@ -11,14 +19,6 @@
     {
       "Id": "3",
       "Name": "Kris+Twister=disastah"
-    }
-  ],
-  "Users": [
-    {
-      "Email": "Email1",
-      "Login": "Login1",
-      "FullName": "FullName1",
-      "Password": "Password1"
     }
   ]
 }
