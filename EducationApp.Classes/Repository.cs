@@ -92,8 +92,10 @@ namespace App.Classes
             var id = _data.Users.Count > 0 ? _data.Users.Max(u => u.Id) + 1 : 1;
             if (!_data.Users.Any(n => n.Email == email))
             {
-                _data.Users.Add(new User { FullName = fullname, Email = email, Login = login, Password = GetHash(password), Id = id, Hash = true, Subjects = new List<Subject>() });
+                User user = new User { FullName = fullname, Email = email, Login = login, Password = GetHash(password), Id = id, Hash = true, Subjects = new List<Subject>() };
+                _data.Users.Add(user);
                 Save();
+                _authorizedUser = user;
                 return true;
             }
             return false;

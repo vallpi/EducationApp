@@ -25,7 +25,7 @@
         <TextBlock FontSize="16" Grid.Row="2" Grid.Column="0" Text="Пароль" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="15"/>
         <TextBox Name="textBox_Login" Grid.Row="1" Grid.Column="1" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
         <PasswordBox Name="passwordBox_Password" Grid.Row="2" Grid.Column="1" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
-        <Button Width="80" Background="#B22222" Height="25" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonNextQuestion_Click">
+        <Button Width="80" Background="#B22222" Height="25" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonLogIn_Click">
             <Button.Template>
                 <ControlTemplate>
                     <Border CornerRadius="10" Background="#B22222">
