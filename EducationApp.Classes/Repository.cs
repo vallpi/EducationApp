@@ -22,7 +22,7 @@ namespace App.Classes
         private Data _data;
         private User _authorizedUser;
         private Subject SelectedSubject;
-        private const string DataFolder = "Data";
+        private const string DataFolder = "../../Data";
         private const string FileName = "Info.json";
         // Кодировка пароля
         private static string GetHash(string password)
