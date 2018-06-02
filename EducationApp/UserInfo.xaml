@@ -10,14 +10,14 @@
 
     <Grid Background="#FFF8DC">
         <Grid.RowDefinitions>
-            <RowDefinition Height="350"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="350"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Полное Имя" Name="TextBlockFullName" FontSize="25"/>
-        <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="логин" Name="TextBlockLogin" FontSize="16"/>
-        <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Text="почта" Name="TextBlockEmail" FontSize="16"/>
+        <TextBlock Name="textBlock_UserName" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Полное Имя" FontSize="25"/>
+        <TextBlock Name="textBlock_Login" Grid.Row="2" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="логин" FontSize="16"/>
+        <TextBlock Name="textBlock_Email" Grid.Row="3" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Text="почта" FontSize="16"/>
         <Image Source="Resources/UserIcon.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Height="300" VerticalAlignment="Center" Width="300"/>
     </Grid>
 </Page>

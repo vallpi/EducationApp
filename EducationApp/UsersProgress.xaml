@@ -10,8 +10,7 @@
 
     <Grid Background="#FFF8DC">
         <ScrollViewer>
-            <DataGrid x:Name="ProgressGrid" RowBackground="#FFF8DC" Background="#FFF8DC" GridLinesVisibility="All" HorizontalGridLinesBrush="#B22222"  BorderThickness="0" FontSize="18" RowHeight="40" HeadersVisibility="None" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            </DataGrid>
+            <DataGrid x:Name="dataGrid_Progress" RowBackground="#FFF8DC" Background="#FFF8DC" GridLinesVisibility="All" HorizontalGridLinesBrush="#B22222"  BorderThickness="0" FontSize="18" RowHeight="40" HeadersVisibility="None" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </ScrollViewer>
     </Grid>
 </Page>

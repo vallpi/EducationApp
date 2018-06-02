@@ -9,26 +9,32 @@
 
     <Grid Background="#FFF8DC">
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0" Text="Полное имя" FontSize="16" VerticalAlignment="Center" Margin="15"/>
         <TextBlock HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" Text="Логин" FontSize="16" VerticalAlignment="Center" Margin="15"/>
         <TextBlock HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0" Text="Электронная почта" FontSize="16" VerticalAlignment="Center" Margin="15"/>
         <TextBlock HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0" Text="Пароль" FontSize="16" VerticalAlignment="Center" Margin="15"/>
-        <TextBox Name="TextBoxFullName" Grid.Column="1" Grid.Row="0" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
-        <TextBox Name="TextBoxLogin" Grid.Column="1" Grid.Row="1" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
-        <TextBox Name="TextBoxEmail" Grid.Column="1" Grid.Row="2" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
-        <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="3" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
-        <Button Content="Зарегистрироваться" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Width="160" Height="25" Click="ButtonRegistration_Click"/>
-
-
+        <TextBox Name="textBox_FullName" Grid.Column="1" Grid.Row="0" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <TextBox Name="textBox_Login" Grid.Column="1" Grid.Row="1" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <TextBox Name="textBox_Email" Grid.Column="1" Grid.Row="2" Text="" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <PasswordBox Name="passwordBox_Password" Grid.Column="1" Grid.Row="3" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="25" Margin="15"/>
+        <Button Width="190" Background="#B22222" Height="25" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonRegistration_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border CornerRadius="10" Background="#B22222">
+                        <TextBlock Text="Зарегистрироваться" Foreground="#FFF8DC" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Page>

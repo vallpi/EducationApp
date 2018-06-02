@@ -30,20 +30,20 @@ namespace EducationApp
 
         private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TextBoxLogin.Text))
+            if (string.IsNullOrWhiteSpace(textBox_Login.Text))
             {
                 MessageBox.Show("Введите логин");
-                TextBoxLogin.Focus();
+                textBox_Login.Focus();
                 return;
             }
-            if (string.IsNullOrWhiteSpace(PasswordBox.Password.ToString()))
+            if (string.IsNullOrWhiteSpace(passwordBox_Password.Password.ToString()))
             {
                 MessageBox.Show("Введите пароль");
-                PasswordBox.Focus();
+                passwordBox_Password.Focus();
                 return;
             }
             // Авторизация
-            if (_repo.Authorization(TextBoxLogin.Text, PasswordBox.Password.ToString()))
+            if (_repo.Authorization(textBox_Login.Text, passwordBox_Password.Password.ToString()))
             {
                 AppWindow app = new AppWindow();
                 app.ShowDialog();

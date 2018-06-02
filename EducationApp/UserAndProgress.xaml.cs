@@ -26,9 +26,9 @@ namespace EducationApp
         public UserAndProgress()
         {
             InitializeComponent();
-            Subject1.Text = _repo.GetSubject(1);
-            Subject2.Text = _repo.GetSubject(2);
-            Subject3.Text = _repo.GetSubject(3);
+            textBlock_Subject1.Text = _repo.GetSubject(1);
+            textBlock_Subject2.Text = _repo.GetSubject(2);
+            textBlock_Subject3.Text = _repo.GetSubject(3);
         }
 
         private void HyperLink1_Click(object sender, RoutedEventArgs e)

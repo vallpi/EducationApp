@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title ="Вход" Height="300" Width="400" ResizeMode="NoResize">
     <Grid>
-        <Frame Source="LogIn.xaml" NavigationUIVisibility="Hidden" ></Frame>
+        <Frame Source="LogIn.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

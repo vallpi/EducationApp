@@ -1,6 +1,4 @@
-﻿using App.Classes;
-using App.Classes.Interface;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,18 +16,18 @@ using System.Windows.Shapes;
 namespace EducationApp
 {
     /// <summary>
-    /// Interaction logic for UserInfo.xaml
+    /// Interaction logic for SubjectInfo.xaml
     /// </summary>
-    public partial class UserInfo : Page
+    public partial class SubjectInfo : Page
     {
-        IRepository _repo = Factory.Instance.GetRepository();
-
-        public UserInfo()
+        public SubjectInfo()
         {
             InitializeComponent();
-            textBlock_UserName.Text = _repo.GetUserData("FullName");
-            textBlock_Email.Text = _repo.GetUserData("Email");
-            textBlock_Login.Text = _repo.GetUserData("Login");
+        }
+
+        private void ButtonStartTest_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/TestQuestion1.xaml"), UriKind.Relative);
         }
     }
 }

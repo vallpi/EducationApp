@@ -57,8 +57,14 @@
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SubjectInfoAndTests.xaml.cs">
-      <DependentUpon>SubjectInfoAndTests.xaml</DependentUpon>
+    <Compile Include="SubjectInfo.xaml.cs">
+      <DependentUpon>SubjectInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestQuestion1.xaml.cs">
+      <DependentUpon>TestQuestion1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestQuestion2.xaml.cs">
+      <DependentUpon>TestQuestion2.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserAndProgress.xaml.cs">
       <DependentUpon>UserAndProgress.xaml</DependentUpon>
@@ -98,7 +104,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SubjectInfoAndTests.xaml">
+    <Page Include="SubjectInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestQuestion1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestQuestion2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

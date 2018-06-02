@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Приложение" ResizeMode="NoResize" WindowState="Maximized">
     <Grid Background="#FFF8DC">
-        <Frame Source="UserAndProgress.xaml" NavigationUIVisibility="Hidden" ></Frame>
+        <Frame Source="UserAndProgress.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
