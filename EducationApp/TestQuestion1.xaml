@@ -26,9 +26,8 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" Fill="#B22222"/>
         <Rectangle Grid.Row="0" Grid.ColumnSpan="9" Grid.Column="0" Fill="#B22222"/>
-        <ListBox Name="listBox_Themes" TextBlock.LineHeight="30" Background="#FFF8DC" Grid.Column="0" Grid.RowSpan="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" Height="auto" VerticalAlignment="Center" Width="330"  BorderThickness="0">
-            <TextBlock>Здесь названия тем</TextBlock>
-        </ListBox>
+        <ListBox Name="listBox_Themes" TextBlock.LineHeight="30" Background="#FFF8DC" Grid.Column="0" Grid.RowSpan="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" Height="auto" VerticalAlignment="Center" Width="330"  BorderThickness="0"/>
+
         <Grid Height="auto" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="6" Grid.Column="2" Grid.Row="1" Margin="31,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>

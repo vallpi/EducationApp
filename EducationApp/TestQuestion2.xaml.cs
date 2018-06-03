@@ -27,6 +27,10 @@ namespace EducationApp
         public TestQuestion2()
         {
             InitializeComponent();
+            textBlock_Subject1.Text = _repo.GetSubject(1);
+            textBlock_Subject2.Text = _repo.GetSubject(2);
+            textBlock_Subject3.Text = _repo.GetSubject(3);
+            listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
         }
 
         private void Hyperlink1_Click(object sender, RoutedEventArgs e)
