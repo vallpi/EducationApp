@@ -15,3 +15,5 @@ v 0.1.5 Fixed a small detail that doesn't affect the program. (by Sandvie)
 v 0.1.6 Added pages with two kinds of questions, remade the page with information about the chosen topic. (by vallpi)
 
 v 0.1.8 Remade some of the pages and their logic. (by vallpi)
+
+v 0.1.8.1 Fixed detailes that doesn't affect the program. (by vallpi)
