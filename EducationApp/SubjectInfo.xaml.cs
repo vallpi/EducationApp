@@ -23,6 +23,7 @@ namespace EducationApp
     public partial class SubjectInfo : Page
     {
         IRepository _repo = Factory.Instance.GetRepository();
+
         public SubjectInfo()
         {
             InitializeComponent();
@@ -55,7 +56,7 @@ namespace EducationApp
 
         private void ButtonStartTest_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/TestQuestion1.xaml"), UriKind.Relative);
+            this.NavigationService.Navigate(new System.Uri("TestQuestion1.xaml", UriKind.Relative));
         }
     }
 }
