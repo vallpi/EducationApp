@@ -14,5 +14,6 @@ namespace App.Classes.Interface
         string GetSubject(int Id);
         List<string> ReturnSubjectTopics();
         void SelectSubject(int Id);
+        List<string> GetTopicTheory(string topic_Name);
     }
 }

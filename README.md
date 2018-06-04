@@ -13,3 +13,7 @@ v 0.1.4 Synchronized some of columns with variables, created json-files with tes
 v 0.1.5 Fixed a small detail that doesn't affect the program. (by Sandvie)
 
 v 0.1.6 Added pages with two kinds of questions, remade the page with information about the chosen topic. (by vallpi)
+
+v 1.0.7 Fixed the logic after v 0.1.6. (by Sandvie)
+
+v 0.1.8 Added Theory synchronization with SubjectInfo page. Added testing info to json files. (by Sandvie)

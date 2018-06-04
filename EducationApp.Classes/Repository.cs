@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using App.Classes.Main_Classes;
 
 namespace App.Classes
 {
@@ -62,6 +63,11 @@ namespace App.Classes
                     break;
             }
             return UserData;
+        }
+        public List<string> GetTopicTheory(string topic_Name)
+        {
+            var theoryText = SelectedSubject.Topics.Where(n => n.Name == topic_Name).Select(k => k.TheoryText).First();
+            return theoryText;
         }
         // Получение информации о предметах
         public string GetSubject(int Id)
@@ -166,6 +172,22 @@ namespace App.Classes
                                     topic.WriteAnswerQuestions = new List<QuestionModel2>();
                                 if (topic.ChooseAnswerQuestions == null)
                                     topic.ChooseAnswerQuestions = new List<QuestionModel1>();
+                                if (topic.Theory != null)
+                                {
+                                    string line = topic.Theory;
+                                    string[] parts = line.Split(';');
+                                    topic.TheoryText = new List<string>();
+                                    for (int i = 0; i < parts.Length; i++)
+                                    {
+                                        if (parts[i].Contains(';'))
+                                            parts[i] = parts[i].Remove(parts[i].Length);
+                                        topic.TheoryText.Add(parts[i]);
+                                    }
+                                }
+                                else
+                                {
+                                    topic.TheoryText = new List<string>();
+                                }
                             }
                         }
                     }

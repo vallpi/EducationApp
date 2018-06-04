@@ -57,5 +57,17 @@ namespace EducationApp
         {
             NavigationService.Navigate(new Uri("/TestQuestion1.xaml"), UriKind.Relative);
         }
+
+        private void listBox_Themes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            textBlock_ThemeTheory.Text = null;
+            var topic_name = (string)listBox_Themes.SelectedItem;
+            if (topic_name != null)
+            {
+                var theory = _repo.GetTopicTheory(topic_name);
+                for (int i = 0; i < theory.Count; i++)
+                    textBlock_ThemeTheory.Text += theory[i] + Environment.NewLine;
+            }
+        }
     }
 }

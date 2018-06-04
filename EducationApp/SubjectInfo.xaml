@@ -26,10 +26,10 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" Fill="#B22222"/>
         <Rectangle Grid.Row="0" Grid.ColumnSpan="9" Grid.Column="0" Fill="#B22222"/>
-        <ListBox Name="listBox_Themes" TextBlock.LineHeight="30" Background="#FFF8DC" Grid.Column="0" Grid.RowSpan="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" Height="auto" VerticalAlignment="Center" Width="330"  BorderThickness="0">
+        <ListBox SelectionChanged="listBox_Themes_SelectionChanged" Name="listBox_Themes" TextBlock.LineHeight="30" Background="#FFF8DC" Grid.Column="0" Grid.RowSpan="2" Grid.Row="1" HorizontalAlignment="Center" FontSize="20" Height="auto" VerticalAlignment="Center" Width="330"  BorderThickness="0">
         </ListBox>
         <ScrollViewer Grid.ColumnSpan="6" Grid.Column="2" Grid.Row="1">
-            <TextBlock Name="textBlock_ThemeTheory" FontSize="16" Width="auto" Height="auto" Text="Здесь теория" Margin="5" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock Name="textBlock_ThemeTheory" FontSize="16" Width="auto" Height="auto" Margin="5" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top"/>
         </ScrollViewer>
         <Button Width="130" Background="#B22222" Height="30" Grid.ColumnSpan="6" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonStartTest_Click">
             <Button.Template>
