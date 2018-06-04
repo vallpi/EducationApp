@@ -23,3 +23,5 @@ v 0.1.8.1 Fixed detailes that doesn't affect the program. (by vallpi)
 v 0.1.9 Added Theory synchronization with SubjectInfo page. Added testing info to json files. (by Sandvie)
 
 v 0.1.9.1 Fixed small detail that doesn't affect the program. (by Sandvie)
+
+v 0.1.9.2 Fixed small detail that doesn't affect the program. (by Sandvie)
