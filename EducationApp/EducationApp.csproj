@@ -147,6 +147,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+<<<<<<< HEAD
     <None Include="Data\Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -159,6 +160,12 @@
     <None Include="Data\Memes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+=======
+    <None Include="Data\Info.json" />
+    <None Include="Data\Kris+Twister=disastah.json" />
+    <None Include="Data\Mahboroda.json" />
+    <None Include="Data\Memes.json" />
+>>>>>>> 0ddb16536441b7441f91fc3708a9862c12413a02
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -16,4 +16,8 @@ v 0.1.6 Added pages with two kinds of questions, remade the page with informatio
 
 v 1.0.7 Fixed the logic after v 0.1.6. (by Sandvie)
 
-v 0.1.8 Added Theory synchronization with SubjectInfo page. Added testing info to json files. (by Sandvie)
+v 0.1.8 Remade some of the pages and their logic. (by vallpi)
+
+v 0.1.8.1 Fixed detailes that doesn't affect the program. (by vallpi)
+
+v 0.1.9 Added Theory synchronization with SubjectInfo page. Added testing info to json files. (by Sandvie)
