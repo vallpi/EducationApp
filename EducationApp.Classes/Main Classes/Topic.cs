@@ -9,6 +9,8 @@ namespace App.Classes
 {
     public class Topic
     {
+        public int SubjectId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Theory { get; set; }
         public List<string> TheoryText { get; set; }

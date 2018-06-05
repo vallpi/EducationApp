@@ -1,9 +1,17 @@
-[{
-      "Name": "Sit and watch how everyone eats a twister"
-    },
-    {
-      "Name": "Write an essay"
-    },
-    {
-      "Name": "be miserable"
-    }]
+[
+  {
+    "Name": "Sit and watch how everyone eats a twister",
+    "ChooseAnswerQuestions": [],
+    "WriteAnswerQuestions": []
+  },
+  {
+    "Name": "Write an essay",
+    "ChooseAnswerQuestions": [],
+    "WriteAnswerQuestions": []
+  },
+  {
+    "Name": "be miserable",
+    "ChooseAnswerQuestions": [],
+    "WriteAnswerQuestions": []
+  }
+]

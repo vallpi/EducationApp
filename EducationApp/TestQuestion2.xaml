@@ -38,7 +38,7 @@
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Text="Тут вопрос" TextWrapping="Wrap" Height="auto" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Name="textBlock_Question" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Text="Тут вопрос" TextWrapping="Wrap" Height="auto" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <TextBlock Grid.Column="0" Grid.Row="2" Text="Ответ:" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"/>
             <TextBox Name="textBox_Answer" Grid.Column="1" Height="auto" Width="300" Grid.Row="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>

@@ -27,6 +27,16 @@ namespace EducationApp
         public TestQuestion2()
         {
             InitializeComponent();
+            var question = _repo.ReturnQuestionModel2();
+            if (question != null)
+            {
+                textBlock_Question.Text = question.Question;
+            }
+            else
+            {
+                UserAndProgress userAndProgress = new UserAndProgress();
+                NavigationService.Navigate(userAndProgress);
+            }
             textBlock_Subject1.Text = _repo.GetSubject(1);
             textBlock_Subject2.Text = _repo.GetSubject(2);
             textBlock_Subject3.Text = _repo.GetSubject(3);
@@ -35,6 +45,7 @@ namespace EducationApp
 
         private void Hyperlink1_Click(object sender, RoutedEventArgs e)
         {
+            _repo.interruptTest();
             _repo.SelectSubject(1);
             listBox_Themes.ItemsSource = null;
             listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
@@ -42,6 +53,7 @@ namespace EducationApp
 
         private void Hyperlink2_Click(object sender, RoutedEventArgs e)
         {
+            _repo.interruptTest();
             _repo.SelectSubject(2);
             listBox_Themes.ItemsSource = null;
             listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
@@ -49,6 +61,7 @@ namespace EducationApp
 
         private void Hyperlink3_Click(object sender, RoutedEventArgs e)
         {
+            _repo.interruptTest();
             _repo.SelectSubject(3);
             listBox_Themes.ItemsSource = null;
             listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
@@ -56,7 +69,20 @@ namespace EducationApp
 
         private void ButtonNextQuestion_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new System.Uri("TestQuestion1.xaml", UriKind.Relative));
+            _repo.CheckAnswer(textBox_Answer.Text, 2);
+            if (_repo.GetQuestionType() == 1)
+            {
+                this.NavigationService.Navigate(new System.Uri("TestQuestion1.xaml", UriKind.Relative));
+            }
+            else
+            {
+                if (_repo.GetQuestionType() == 2)
+                {
+                    this.NavigationService.Navigate(new System.Uri("TestQuestion2.xaml", UriKind.Relative));
+                }
+            }
+            if (_repo.GetQuestionType() == 0)
+                this.NavigationService.Navigate(new System.Uri("UserAndProgress.xaml", UriKind.Relative));
         }
     }
 }

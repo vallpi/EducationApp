@@ -15,5 +15,10 @@ namespace App.Classes.Interface
         List<string> ReturnSubjectTopics();
         void SelectSubject(int Id);
         List<string> GetTopicTheory(string topic_Name);
+        int GetQuestionType();
+        QuestionModel2 ReturnQuestionModel2();
+        QuestionModel1 ReturnQuestionModel1();
+        void CheckAnswer(string answer, int questionType);
+        void interruptTest();
     }
 }

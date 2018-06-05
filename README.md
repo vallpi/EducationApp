@@ -25,3 +25,5 @@ v 0.1.9 Added Theory synchronization with SubjectInfo page. Added testing info t
 v 0.1.9.1 Fixed small detail that doesn't affect the program. (by Sandvie)
 
 v 0.1.9.2 Fixed small detail that doesn't affect the program. (by Sandvie)
+
+v 0.2.0 Changed the way information was stored in json-file. Added three tests to second subject. Added Test logic. (by Sandvie)

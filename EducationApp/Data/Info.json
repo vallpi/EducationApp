@@ -2,66 +2,15 @@
     "Subjects": [
         {
             "Id": 1,
-            "Name": "Memes",
-            "Topics": [
-                {
-                    "Name": "But can you do this",
-                    "ChooseAnswerQuestions": [],
-                    "WriteAnswerQuestions": []
-                },
-                {
-                    "Name": "This meme is dead",
-                    "ChooseAnswerQuestions": [],
-                    "WriteAnswerQuestions": []
-                },
-                {
-                    "Name": "Is this a project worth 10 grade",
-                    "ChooseAnswerQuestions": [],
-                    "WriteAnswerQuestions": []
-                }
-            ]
+            "Name": "Memes"
         },
         {
             "Id": 2,
-            "Name": "Mahboroda",
-            "Topics": [
-                {
-                    "Name": "be 10 minutes late",
-                    "ChooseAnswerQuestions": [],
-                    "WriteAnswerQuestions": []
-                },
-                {
-                    "Name": "be 15 minutes late",
-                    "ChooseAnswerQuestions": [],
-                    "WriteAnswerQuestions": []
-                },
-                {
-                    "Name": "be 2 days late",
-                    "ChooseAnswerQuestions": [],
-                    "WriteAnswerQuestions": []
-                }
-            ]
+            "Name": "Mahboroda"
         },
         {
             "Id": 3,
             "Name": "Kris+Twister=disastah",
-            "Topics": [
-                {
-                    "Name": "Sit and watch how everyone eats a twister",
-                    "ChooseAnswerQuestions": [],
-                    "WriteAnswerQuestions": []
-                },
-                {
-                    "Name": "Write an essay",
-                    "ChooseAnswerQuestions": [],
-                    "WriteAnswerQuestions": []
-                },
-                {
-                    "Name": "be miserable",
-                    "ChooseAnswerQuestions": [],
-                    "WriteAnswerQuestions": []
-                }
-            ]
         }
     ],
     "Users": [

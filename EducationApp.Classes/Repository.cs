@@ -20,6 +20,9 @@ namespace App.Classes
             public List<User> Users { get; set; }
         }
 
+        private int score = 0;
+        private Topic SelectedTopic;
+        private int question_Number = 1;
         private Data _data;
         private User _authorizedUser;
         private Subject SelectedSubject;
@@ -32,6 +35,14 @@ namespace App.Classes
             var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(password));
             return Convert.ToBase64String(hash);
         }
+
+        public void interruptTest()
+        {
+            score = 0;
+            question_Number = 1;
+            return;
+        }
+
         // Авторизация
         public bool Authorization(string login, string password)
         {
@@ -64,8 +75,28 @@ namespace App.Classes
             }
             return UserData;
         }
+
+        public void CheckAnswer(string answer, int questionType)
+        {
+            if (questionType == 1)
+            { 
+                if (answer == SelectedTopic.ChooseAnswerQuestions.Where(n => n.QuestionNumber == question_Number).Select(k => k.CorrectAnswer).FirstOrDefault())
+                {
+                    score++;
+                }
+            }
+            else
+            {
+                if (answer == SelectedTopic.WriteAnswerQuestions.Where(n => n.QuestionNumber == question_Number).Select(k => k.CorrectAnswer).FirstOrDefault())
+                {
+                    score++;
+                }
+            }
+            return;
+        }
         public List<string> GetTopicTheory(string topic_Name)
         {
+            SelectedTopic = SelectedSubject.Topics.Where(k => k.Name == topic_Name).First();
             var theoryText = SelectedSubject.Topics.Where(n => n.Name == topic_Name).Select(k => k.TheoryText).First();
             return theoryText;
         }
@@ -123,6 +154,33 @@ namespace App.Classes
             }
         }
 
+        public void GetTestResult()
+        {
+            _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, Score = score, SubjectId = SelectedSubject.Id, TopicId = SelectedTopic.Id });
+        }
+
+        public QuestionModel1 ReturnQuestionModel1()
+        {
+            var question = SelectedTopic.ChooseAnswerQuestions.FirstOrDefault(k => k.QuestionNumber == question_Number);
+            question_Number++;
+            return question;
+        }
+        
+        public QuestionModel2 ReturnQuestionModel2()
+        {
+            var question = SelectedTopic.WriteAnswerQuestions.FirstOrDefault(k => k.QuestionNumber == question_Number);
+            question_Number++;
+            return question;
+        }
+
+        public int GetQuestionType()
+        {
+            if (SelectedTopic.ChooseAnswerQuestions.Any(n => n.QuestionNumber == question_Number))
+                return 1;
+            if (SelectedTopic.WriteAnswerQuestions.Any(n => n.QuestionNumber == question_Number))
+                return 2;
+            return 0;
+        }
         private string GetPath(string subject) => Path.Combine(DataFolder, subject  + ".json");
         // Прочитка файла
         public Repository()
@@ -155,6 +213,10 @@ namespace App.Classes
                     user.Password = GetHash(user.Password);
                     user.Hash = true;
                 }
+                if(user.TestResults == null)
+                {
+                    user.TestResults = new List<TestResult>();
+                }
             }
             foreach(var subject in _data.Subjects)
             {
@@ -172,6 +234,10 @@ namespace App.Classes
                                     topic.WriteAnswerQuestions = new List<QuestionModel2>();
                                 if (topic.ChooseAnswerQuestions == null)
                                     topic.ChooseAnswerQuestions = new List<QuestionModel1>();
+                                foreach(var chooseans in topic.ChooseAnswerQuestions)
+                                {
+                                    chooseans.Answers = new string[4] { chooseans.Answer1, chooseans.Answer2, chooseans.Answer3, chooseans.Answer4 };
+                                }
                                 if (topic.Theory != null)
                                 {
                                     string line = topic.Theory;
