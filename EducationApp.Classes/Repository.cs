@@ -80,14 +80,14 @@ namespace App.Classes
         {
             if (questionType == 1)
             { 
-                if (answer == SelectedTopic.ChooseAnswerQuestions.Where(n => n.QuestionNumber == question_Number).Select(k => k.CorrectAnswer).FirstOrDefault())
+                if (answer == SelectedTopic.ChooseAnswerQuestions.Where(n => n.QuestionNumber == question_Number-1).Select(k => k.CorrectAnswer).FirstOrDefault())
                 {
                     score++;
                 }
             }
             else
             {
-                if (answer == SelectedTopic.WriteAnswerQuestions.Where(n => n.QuestionNumber == question_Number).Select(k => k.CorrectAnswer).FirstOrDefault())
+                if (answer == SelectedTopic.WriteAnswerQuestions.Where(n => n.QuestionNumber == question_Number-1).Select(k => k.CorrectAnswer).FirstOrDefault())
                 {
                     score++;
                 }
@@ -157,6 +157,8 @@ namespace App.Classes
         public void GetTestResult()
         {
             _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, Score = score, SubjectId = SelectedSubject.Id, TopicId = SelectedTopic.Id });
+            Save();
+            return;
         }
 
         public QuestionModel1 ReturnQuestionModel1()

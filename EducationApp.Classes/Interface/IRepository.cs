@@ -20,5 +20,6 @@ namespace App.Classes.Interface
         QuestionModel1 ReturnQuestionModel1();
         void CheckAnswer(string answer, int questionType);
         void interruptTest();
+        void GetTestResult();
     }
 }
