@@ -30,4 +30,4 @@ v 0.2.0 Changed the way information was stored in json-file. Added three tests t
 
 v 0.2.0.1 Fixed score calculation. (by Sandvie)
 
-v 0.2.1 Created a new branch for sound effects. Working on sound and pictures for result window.
+v 0.2.1 Created a new branch for sound effects. Working on sound and pictures for result window. (by vallpi)
