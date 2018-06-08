@@ -27,10 +27,34 @@ namespace EducationApp
         public SubjectInfo()
         {
             InitializeComponent();
-            textBlock_Subject1.Text = _repo.GetSubject(1);
-            textBlock_Subject2.Text = _repo.GetSubject(2);
-            textBlock_Subject3.Text = _repo.GetSubject(3);
             listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
+            foreach (Subject s in _repo.GetSubjectList())
+                AddSubject(s.Name);
+        }
+
+        private void AddSubject(string name)
+        {
+            /*Run run = new Run(name);
+            Hyperlink hyper = new Hyperlink(run)
+            {
+                NavigateUri = new Uri("SubjectInfo.xaml", UriKind.Relative),
+                Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF8DC")),
+                FontSize = 18,
+            };
+            hyper.RequestNavigate += Hyperlink1_Click; */
+
+            TextBlock text = new TextBlock()
+            {
+                Text = name,
+                FontSize = 18,
+                Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF8DC")),
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness { Left = 100, Right = 100 },
+            };
+            // text.Inlines.Add(hyper);
+            var list = ListSubj.Items;
+            list.Add(text);
         }
 
         private void Hyperlink1_Click(object sender, RoutedEventArgs e)
@@ -82,6 +106,15 @@ namespace EducationApp
                 for (int i = 0; i < theory.Count; i++)
                     textBlock_ThemeTheory.Text += theory[i] + Environment.NewLine;
             }
+        }
+
+        private void ListSubj_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TextBlock text = (TextBlock)ListSubj.SelectedItem;
+            int id = _repo.GetSubjectList().Where(n => n.Name == text.Text).FirstOrDefault().Id;
+            _repo.SelectSubject(id);
+            listBox_Themes.ItemsSource = null;
+            listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
         }
     }
 }

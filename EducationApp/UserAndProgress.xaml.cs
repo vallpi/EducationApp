@@ -26,24 +26,34 @@ namespace EducationApp
         public UserAndProgress()
         {
             InitializeComponent();
-            textBlock_Subject1.Text = _repo.GetSubject(1);
-            textBlock_Subject2.Text = _repo.GetSubject(2);
-            textBlock_Subject3.Text = _repo.GetSubject(3);
+            foreach (Subject s in _repo.GetSubjectList())
+                AddSubject(s.Name);
         }
 
-        private void HyperLink1_Click(object sender, RoutedEventArgs e)
+
+        private void AddSubject(string name)
         {
-            _repo.SelectSubject(1);
+            TextBlock text = new TextBlock()
+            {
+                Text = name,
+                FontSize = 18,
+                Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF8DC")),
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness { Left = 100, Right = 100 },
+            };
+            var list = ListSubj.Items;
+            list.Add(text);
         }
 
-        private void HyperLink2_Click(object sender, RoutedEventArgs e)
+        private void ListSubj_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _repo.SelectSubject(2);
+            NavigationService.Navigate(new Uri("SubjectInfo.xaml", UriKind.Relative));
+            TextBlock text = (TextBlock)ListSubj.SelectedItem;
+            int id = _repo.GetSubjectList().Where(n => n.Name == text.Text).FirstOrDefault().Id;
+            _repo.SelectSubject(id);
+
         }
 
-        private void HyperLink3_Click(object sender, RoutedEventArgs e)
-        {
-            _repo.SelectSubject(3);
-        }
     }
 }

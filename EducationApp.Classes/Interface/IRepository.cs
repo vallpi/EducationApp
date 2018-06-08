@@ -12,6 +12,7 @@ namespace App.Classes.Interface
         bool Registration(string fullname, string email, string login, string password);
         string GetUserData(string requiredData);
         string GetSubject(int Id);
+        List<Subject> GetSubjectList();
         List<string> ReturnSubjectTopics();
         void SelectSubject(int Id);
         List<string> GetTopicTheory(string topic_Name);

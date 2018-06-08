@@ -45,8 +45,14 @@
                 <Image Source="Resources/HomeIcon.png" Height="30" Width="30"/>
             </Hyperlink>
         </Label>
-        <TextBlock Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="0" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink Click="Hyperlink1_Click" Foreground="#FFF8DC" NavigateUri="SubjectInfo.xaml"><TextBlock TextWrapping="Wrap" Name="textBlock_Subject1" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/></Hyperlink></TextBlock>
-        <TextBlock Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="0" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink Click="Hyperlink2_Click" Foreground="#FFF8DC" NavigateUri="SubjectInfo.xaml"><TextBlock TextWrapping="Wrap" Name="textBlock_Subject2" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/></Hyperlink></TextBlock>
-        <TextBlock Grid.ColumnSpan="2" Grid.Column="6" Grid.Row="0" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink Click="Hyperlink3_Click" Foreground="#FFF8DC" NavigateUri="SubjectInfo.xaml"><TextBlock TextWrapping="Wrap" Name="textBlock_Subject3" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/></Hyperlink></TextBlock>
+        <ScrollViewer Name="scroll" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.ColumnSpan="6" Grid.Column="2">
+            <ListBox Name="ListSubj" SelectionChanged="ListSubj_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="#B22222" Grid.ColumnSpan="6" Grid.Column="2">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </ScrollViewer>
     </Grid>
 </Page>

@@ -30,4 +30,6 @@ v 0.2.0 Changed the way information was stored in json-file. Added three tests t
 
 v 0.2.0.1 Fixed score calculation. (by Sandvie)
 
+v 0.2.0.2 Changed the way Subjects was shown in UserAndProgress.xaml and SubjectInfo.xaml (ListBox of TextBlock) so the amount of subjects could be changed in program. Added method to get list of subjects in Repository. (by Pyashy)
+
 v 0.2.1 Created a new branch for sound effects. Working on sound and pictures for result window. (by vallpi)

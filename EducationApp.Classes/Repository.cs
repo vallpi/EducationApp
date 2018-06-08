@@ -106,6 +106,12 @@ namespace App.Classes
             var Subject = _data.Subjects.Where(n => n.Id == Id).Select(n => n.Name).First();
             return Subject;
         }
+
+        public List<Subject> GetSubjectList()
+        {
+            return _data.Subjects;
+        }
+
         //Сохранение выбранного предмета для перехода по гиперссылке
         public void SelectSubject(int Id)
         {
