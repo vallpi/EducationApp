@@ -46,7 +46,7 @@
             </Hyperlink>
         </Label>
         <ScrollViewer Name="scroll" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.ColumnSpan="6" Grid.Column="2">
-            <ListBox Name="ListSubj" SelectionChanged="ListSubj_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="#B22222" Grid.ColumnSpan="6" Grid.Column="2">
+            <ListBox Name="ListSubj" Margin="40,0" BorderBrush="Transparent" Focusable="False" SelectionChanged="ListSubj_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="#B22222" Grid.ColumnSpan="6" Grid.Column="2">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>
@@ -54,5 +54,15 @@
                 </ListBox.ItemsPanel>
             </ListBox>
         </ScrollViewer>
+        <Label BorderBrush="Transparent" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Left">
+            <Hyperlink Name="ScrollToLeft" Foreground="#B22222" Click="ScrollToLeft_Click">
+                <Image Source="Resources/ScrollToLeft.png" Height="30" Width="30"/>
+            </Hyperlink>
+        </Label>
+        <Label BorderBrush="Transparent" VerticalAlignment="Center" Grid.Column="7" HorizontalAlignment="Right">
+            <Hyperlink Name="ScrollToRight" Foreground="#B22222" Click="ScrollToRight_Click">
+                <Image Source="Resources/ScrollToRight.png" Height="30" Width="30"/>
+            </Hyperlink>
+        </Label>
     </Grid>
 </Page>

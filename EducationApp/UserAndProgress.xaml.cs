@@ -55,5 +55,14 @@ namespace EducationApp
 
         }
 
+        private void ScrollToLeft_Click(object sender, RoutedEventArgs e)
+        {
+            scroll.PageLeft();
+        }
+
+        private void ScrollToRight_Click(object sender, RoutedEventArgs e)
+        {
+            scroll.PageRight();
+        }
     }
 }

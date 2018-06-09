@@ -116,5 +116,15 @@ namespace EducationApp
             listBox_Themes.ItemsSource = null;
             listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
         }
+
+        private void ScrollToLeft_Click(object sender, RoutedEventArgs e)
+        {
+            scroll.PageLeft();
+        }
+
+        private void ScrollToRight_Click(object sender, RoutedEventArgs e)
+        {
+            scroll.PageRight();
+        }
     }
 }
