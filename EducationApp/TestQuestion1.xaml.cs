@@ -98,7 +98,16 @@ namespace EducationApp
             _repo.CheckAnswer(value, 1);
             if (_repo.GetQuestionType() == 1)
             {
-                this.NavigationService.Navigate(new System.Uri("TestQuestion1.xaml", UriKind.Relative));
+                RadioButton1.IsChecked = false;
+                RadioButton2.IsChecked = false;
+                RadioButton3.IsChecked = false;
+                RadioButton4.IsChecked = false;
+                var question = _repo.ReturnQuestionModel1();
+                textBlock_Question.Text = question.Question;
+                textBlock_Answer1.Text = question.Answer1;
+                textBlock_Answer2.Text = question.Answer2;
+                textBlock_Answer3.Text = question.Answer3;
+                textBlock_Answer4.Text = question.Answer4;
             }
             else
             {

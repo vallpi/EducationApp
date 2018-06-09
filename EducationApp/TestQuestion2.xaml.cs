@@ -78,7 +78,11 @@ namespace EducationApp
             {
                 if (_repo.GetQuestionType() == 2)
                 {
-                    this.NavigationService.Navigate(new System.Uri("TestQuestion2.xaml", UriKind.Relative));
+                    var question = _repo.ReturnQuestionModel2();
+                    if (question != null)
+                    {
+                        textBlock_Question.Text = question.Question;
+                    }
                 }
             }
             if (_repo.GetQuestionType() == 0)

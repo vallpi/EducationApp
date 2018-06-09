@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Factory.cs" />
     <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Main Classes\ScoreItem.cs" />
     <Compile Include="Main Classes\TestResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Main Classes\QuestionModel1.cs" />

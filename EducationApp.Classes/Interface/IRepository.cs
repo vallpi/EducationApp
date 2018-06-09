@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Classes.Main_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,5 +23,6 @@ namespace App.Classes.Interface
         void CheckAnswer(string answer, int questionType);
         void interruptTest();
         void GetTestResult();
+        IEnumerable<ScoreItem> GetScore();
     }
 }

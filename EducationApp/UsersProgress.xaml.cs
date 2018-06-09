@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App.Classes;
+using App.Classes.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,11 @@ namespace EducationApp
     /// </summary>
     public partial class UsersProgress : Page
     {
+        IRepository _repo = Factory.Instance.GetRepository();
         public UsersProgress()
         {
             InitializeComponent();
+            dataGrid_Progress.ItemsSource = _repo.GetScore();
         }
     }
 }

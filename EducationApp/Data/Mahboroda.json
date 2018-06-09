@@ -1,5 +1,7 @@
 [
   {
+    "Id": "0",
+    "SubjectId": "1",
     "Name": "be 10 minutes late",
     "Theory": "You know how heavy the traffic is",
     "ChooseAnswerQuestions": [
@@ -40,6 +42,8 @@
     ]
   },
   {
+    "Id": "1",
+    "SubjectId": "1",
     "Name": "be 15 minutes late",
     "Theory": "Being late is a state of mind",
     "ChooseAnswerQuestions": [
@@ -62,6 +66,8 @@
     ]
   },
   {
+    "Id": "2",
+    "SubjectId": "1",
     "Name": "be 2 days late",
     "Theory": "You're not guilty if you're not there; Be late like every time is the last time",
     "ChooseAnswerQuestions": [

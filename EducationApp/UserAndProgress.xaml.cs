@@ -23,6 +23,7 @@ namespace EducationApp
     public partial class UserAndProgress : Page
     {
         IRepository _repo = Factory.Instance.GetRepository();
+        
         public UserAndProgress()
         {
             InitializeComponent();

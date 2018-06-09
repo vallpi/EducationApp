@@ -159,11 +159,41 @@ namespace App.Classes
                 }
             }
         }
-
+        public IEnumerable<ScoreItem> GetScore()
+        {
+            List<ScoreItem> Score = new List<ScoreItem>();
+            if (_authorizedUser.TestResults != null)
+            {
+                foreach (var testres in _authorizedUser.TestResults)
+                {
+                    List<Topic> topics = _data.Subjects.Where(n => n.Id == testres.SubjectId).Select(j => j.Topics).First();
+                    var AllChooseQuestions = topics.Where(n => n.Id == testres.TopicId).Select(l => l.ChooseAnswerQuestions).First();
+                    var AllWriteQuestions = topics.Where(n => n.Id == testres.TopicId).Select(l => l.WriteAnswerQuestions).First();
+                    Score.Add(new ScoreItem { TopicName = topics.Where(n => n.Id == testres.TopicId).Select(l => l.Name).First(), score = testres.Score, MaximumScore = AllChooseQuestions.Count + AllWriteQuestions.Count });
+                }
+            }
+            return Score;
+        }
         public void GetTestResult()
         {
-            _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, Score = score, SubjectId = SelectedSubject.Id, TopicId = SelectedTopic.Id });
+            if (_authorizedUser.TestResults != null)
+            {
+                if (!_authorizedUser.TestResults.Any(n => n.TopicId == SelectedTopic.Id))
+                    _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, Score = score, SubjectId = SelectedSubject.Id, TopicId = SelectedTopic.Id });
+                else
+                {
+                    var e = _authorizedUser.TestResults.Where(s => s.TopicId == SelectedTopic.Id).First();
+                    e.Score = score;
+                }
+            }
+            else
+            {
+                _authorizedUser.TestResults = new List<TestResult>();
+                _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, Score = score, SubjectId = SelectedSubject.Id, TopicId = SelectedTopic.Id });
+            }
             Save();
+            score = 0;
+            question_Number = 1;
             return;
         }
 
@@ -220,10 +250,6 @@ namespace App.Classes
                 {
                     user.Password = GetHash(user.Password);
                     user.Hash = true;
-                }
-                if(user.TestResults == null)
-                {
-                    user.TestResults = new List<TestResult>();
                 }
             }
             foreach(var subject in _data.Subjects)
