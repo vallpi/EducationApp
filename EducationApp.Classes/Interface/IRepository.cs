@@ -16,7 +16,7 @@ namespace App.Classes.Interface
         List<Subject> GetSubjectList();
         List<string> ReturnSubjectTopics();
         void SelectSubject(int Id);
-        List<string> GetTopicTheory(string topic_Name);
+        List<Theory> GetTopicTheory(string topic_Name);
         int GetQuestionType();
         QuestionModel2 ReturnQuestionModel2();
         QuestionModel1 ReturnQuestionModel1();

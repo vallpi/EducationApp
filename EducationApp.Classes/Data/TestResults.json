@@ -1,0 +1,23 @@
+﻿[
+  {
+    "Id": 1,
+    "TopicId": 1,
+    "SubjectId": 1,
+    "Score": 1,
+    "UserId": 1
+  },
+  {
+    "Id": 2,
+    "TopicId": 2,
+    "SubjectId": 1,
+    "Score": 0,
+    "UserId": 1
+  },
+  {
+    "Id": 3,
+    "TopicId": 1,
+    "SubjectId": 1,
+    "Score": 0,
+    "UserId": 1
+  }
+]

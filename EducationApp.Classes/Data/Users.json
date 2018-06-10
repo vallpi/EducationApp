@@ -1,0 +1,18 @@
+﻿[
+  {
+    "Id": 1,
+    "Email": "6sandwich9@gmail.com",
+    "FullName": "Mark Serrano",
+    "Login": "Sandvie",
+    "Password": "Qpf0SxOVUjUkWySXOZ16kw==",
+    "Hash": true
+  },
+  {
+    "Id": 2,
+    "Email": "a",
+    "FullName": "a",
+    "Login": "a",
+    "Password": "DMF1ucDxtqgxw5niaXcmYQ==",
+    "Hash": true
+  }
+]

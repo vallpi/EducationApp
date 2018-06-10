@@ -36,4 +36,6 @@ v 0.2.0.3 Added scroller buttons to control list of subjects in UserAndProgress.
 
 v 0.2.1 Added Datagrid logic and updated some test logic. (by Sandvie)
 
-v 0.2.2 Created a new branch for sound effects. Working on sound and pictures for result window. (by vallpi)
+v 0.3.0 Changed design of some classes. Json files were redesigned. Added DB with seed method. Zadolbalsya (by Pyashy)
+
+v 0.3.1 Created a new branch for sound effects. Working on sound and pictures for result window. (by vallpi)

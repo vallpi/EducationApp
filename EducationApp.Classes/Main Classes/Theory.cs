@@ -8,16 +8,13 @@ using System.Threading.Tasks;
 
 namespace App.Classes.Main_Classes
 {
-    public class TestResult
+    public class Theory
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
-        public int Score { get; set; }
+        public string Text { get; set; }
 
         public int TopicId { get; set; }
-        public int SubjectId { get; set; }
-        public int UserId { get; set; }
         [JsonIgnore]
-        public User User { get; set; }
+        public Topic Topic { get; set; }
     }
 }

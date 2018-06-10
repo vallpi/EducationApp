@@ -1,0 +1,47 @@
+﻿[
+  {
+    "Id": 1,
+    "SubjectId": 1,
+    "Name": "But can you do this"
+  },
+  {
+    "Id": 2,
+    "SubjectId": 1,
+    "Name": "This meme is dead"
+  },
+  {
+    "Id": 3,
+    "SubjectId": 1,
+    "Name": "Is this a project worth 10 grade"
+  },
+  {
+    "Id": 4,
+    "SubjectId": 2,
+    "Name": "be 10 minutes late"
+  },
+  {
+    "Id": 5,
+    "SubjectId": 2,
+    "Name": "be 15 minutes late"
+  },
+  {
+    "Id": 6,
+    "SubjectId": 2,
+    "Name": "be 2 days late"
+  },
+  {
+    "SubjectId": 3,
+    "Id": 7,
+    "Name": "Sit and watch how everyone eats a twister",
+  },
+  {
+    "SubjectId": 3,
+    "Id": 8,
+    "Name": "Write an essay"
+  },
+  {
+    "SubjectId": 3,
+    "Id": 9,
+    "Name": "be miserable"
+  }
+]
