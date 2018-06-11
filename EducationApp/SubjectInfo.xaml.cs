@@ -81,18 +81,25 @@ namespace EducationApp
         private void ButtonStartTest_Click(object sender, RoutedEventArgs e)
         {
             var topic_name = (string)listBox_Themes.SelectedItem;
-            if (_repo.GetQuestionType() == 1)
-                this.NavigationService.Navigate(new System.Uri("TestQuestion1.xaml", UriKind.Relative));
-            else
+            if (topic_name != null)
             {
-                if (_repo.GetQuestionType() == 2)
+                if (_repo.GetQuestionType() == 1)
+                    this.NavigationService.Navigate(new System.Uri("TestQuestion1.xaml", UriKind.Relative));
+                else
                 {
-                    this.NavigationService.Navigate(new System.Uri("TestQuestion2.xaml", UriKind.Relative));
+                    if (_repo.GetQuestionType() == 2)
+                    {
+                        this.NavigationService.Navigate(new System.Uri("TestQuestion2.xaml", UriKind.Relative));
+                    }
+                }
+                if (_repo.GetQuestionType() == 0)
+                {
+                    this.NavigationService.Navigate(new System.Uri("UserAndProgress.xaml", UriKind.Relative));
                 }
             }
-            if (_repo.GetQuestionType() == 0)
+            else
             {
-                this.NavigationService.Navigate(new System.Uri("UserAndProgress.xaml", UriKind.Relative));
+                MessageBox.Show("Выберите тему");
             }
         }
 
