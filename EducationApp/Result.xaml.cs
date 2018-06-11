@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App.Classes;
+using App.Classes.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +21,13 @@ namespace EducationApp
     /// </summary>
     public partial class Result : Window
     {
+        IRepository _repo = Factory.Instance.GetRepository();
         MediaElement sound;
 
-        public Result(int result)
+        public Result()
         {
+            int result = _repo.ShowResult();
+            _repo.GetTestResult();
             InitializeComponent();
             sound = new MediaElement();
 

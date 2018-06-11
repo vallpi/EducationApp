@@ -24,5 +24,6 @@ namespace App.Classes.Interface
         void interruptTest();
         void GetTestResult();
         IEnumerable<ScoreItem> GetScore();
+        int ShowResult();
     }
 }

@@ -87,8 +87,7 @@ namespace EducationApp
             }
             if (_repo.GetQuestionType() == 0)
             {
-                _repo.GetTestResult();
-                this.NavigationService.Navigate(new System.Uri("UserAndProgress.xaml", UriKind.Relative));
+                this.NavigationService.Navigate(new System.Uri("Result.xaml", UriKind.Relative));
             }
         }
     }

@@ -224,6 +224,12 @@ namespace App.Classes
                 return 2;
             return 0;
         }
+
+        public int ShowResult()
+        {
+            return score;
+        }
+
         private string GetPath(string subject) => Path.Combine(DataFolder, subject  + ".json");
         // Прочитка файла
         public Repository()
