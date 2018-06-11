@@ -14,7 +14,7 @@ namespace App.Classes
         public int Id { get; set; }
         public string Name { get; set; }
         [JsonIgnore]
-        public List<Topic> Topics { get; set; }
+        public virtual List<Topic> Topics { get; set; }
         public Subject()
         {
             Topics = new List<Topic>();

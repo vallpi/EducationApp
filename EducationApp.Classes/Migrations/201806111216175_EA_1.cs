@@ -30,10 +30,10 @@ namespace App.Classes.Migrations
                     {
                         Id = c.Int(nullable: false),
                         Name = c.String(),
-                        SubjectId = c.Int(nullable: false),
+                        SubjectId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Subjects", t => t.SubjectId, cascadeDelete: true)
+                .ForeignKey("dbo.Subjects", t => t.SubjectId)
                 .Index(t => t.SubjectId);
             
             CreateTable(
@@ -51,10 +51,10 @@ namespace App.Classes.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Text = c.String(),
-                        TopicId = c.Int(nullable: false),
+                        TopicId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Topics", t => t.TopicId, cascadeDelete: true)
+                .ForeignKey("dbo.Topics", t => t.TopicId)
                 .Index(t => t.TopicId);
             
             CreateTable(
@@ -78,10 +78,10 @@ namespace App.Classes.Migrations
                         Score = c.Int(nullable: false),
                         TopicId = c.Int(nullable: false),
                         SubjectId = c.Int(nullable: false),
-                        UserId = c.Int(nullable: false),
+                        UserId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(

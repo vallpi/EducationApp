@@ -20,7 +20,7 @@ namespace App.Classes
         public bool Hash { get; set; }
 
         [JsonIgnore]
-        public List<TestResult> TestResults { get; set; }
+        public virtual List<TestResult> TestResults { get; set; }
         public User()
         {
             TestResults = new List<TestResult>();

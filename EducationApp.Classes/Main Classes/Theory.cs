@@ -13,8 +13,8 @@ namespace App.Classes.Main_Classes
         public int Id { get; set; }
         public string Text { get; set; }
 
-        public int TopicId { get; set; }
+        public int? TopicId { get; set; }
         [JsonIgnore]
-        public Topic Topic { get; set; }
+        public virtual Topic Topic { get; set; }
     }
 }

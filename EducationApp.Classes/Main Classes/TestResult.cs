@@ -14,10 +14,12 @@ namespace App.Classes.Main_Classes
         public int Id { get; set; }
         public int Score { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int TopicId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int SubjectId { get; set; }
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         [JsonIgnore]
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }

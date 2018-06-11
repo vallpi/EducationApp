@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using App.Classes.Main_Classes;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace App.Classes
 {
@@ -137,7 +138,9 @@ namespace App.Classes
             var id = _data.Users.Count > 0 ? _data.Users.Max(u => u.Id) + 1 : 1;
             if (!_data.Users.Any(n => n.Email == email))
             {
-                User user = new User { FullName = fullname, Email = email, Login = login, Password = GetHash(password), Id = id, Hash = true};
+                ctx.Users.AddOrUpdate(new User { FullName = fullname, Email = email, Login = login, Password = GetHash(password), Id = id, Hash = true });
+                ctx.SaveChanges();
+                User user = ctx.Users.Where(n => n.Email == email).FirstOrDefault();
                 _data.Users.Add(user);
                 Save();
                 _authorizedUser = user;
@@ -152,12 +155,12 @@ namespace App.Classes
             {
                 Directory.CreateDirectory(DataFolder);
             }
-            using (var sw = new StreamWriter(Path.Combine(DataFolder, FileName)))
+            using (var sw = new StreamWriter("../../../EducationApp.Classes/Data/Users.json"))
             {
                 using (var jsonWriter = new JsonTextWriter(sw))
                 {
                     var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, _data);
+                    serializer.Serialize(jsonWriter, ctx.Users.ToList());
                 }
             }
         }

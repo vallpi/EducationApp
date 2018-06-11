@@ -16,15 +16,15 @@ namespace App.Classes
         public string Name { get; set; }
 
 
-        public int SubjectId { get; set; }
+        public int? SubjectId { get; set; }
         [JsonIgnore]
-        public Subject Subject { get; set; }
+        public virtual Subject Subject { get; set; }
         [JsonIgnore]
-        public List<QuestionModel1> ChooseAnswerQuestions { get; set; }
+        public virtual List<QuestionModel1> ChooseAnswerQuestions { get; set; }
         [JsonIgnore]
-        public List<QuestionModel2> WriteAnswerQuestions { get; set; }
+        public virtual List<QuestionModel2> WriteAnswerQuestions { get; set; }
         [JsonIgnore]
-        public List<Theory> TheoryText { get; set; }
+        public virtual List<Theory> TheoryText { get; set; }
         public Topic()
         {
             ChooseAnswerQuestions = new List<QuestionModel1>();
