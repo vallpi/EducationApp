@@ -42,4 +42,6 @@ v 0.3.0.1 Fixed Registration and Save methods in Repository. Added some small fe
 
 v 0.3.1 Added window with the result of the test and some additional files.
 
-v 0.3.2 Added Navigation to result window. (by Sandvie)
+v 0.3.2 Added first draft of Editor with Question1Page. (by Pyashy)
+
+v 0.3.3 Added Navigation to result window. (by Sandvie)
