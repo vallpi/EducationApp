@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -63,6 +66,9 @@
     </ApplicationDefinition>
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Result.xaml.cs">
+      <DependentUpon>Result.xaml</DependentUpon>
     </Compile>
     <Compile Include="SubjectInfo.xaml.cs">
       <DependentUpon>SubjectInfo.xaml</DependentUpon>
@@ -108,6 +114,10 @@
       <DependentUpon>LogInWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Result.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +188,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\ScrollToRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Affleck_meme.jpg" />
+    <Resource Include="Resources\Deadpool_meme.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pewdiepie_meme.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Sad_Soundtrack.mp3" />
+    <Resource Include="AppIcon.ico" />
+    <Content Include="Resources\Maximum_Effort_Deadpool.mp3" />
+    <Content Include="Resources\Vary_Niice_Pewdiepie.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
