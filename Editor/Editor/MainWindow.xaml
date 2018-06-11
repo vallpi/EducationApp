@@ -1,0 +1,30 @@
+﻿<Window x:Class="Editor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Editor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <ComboBox Name="ComboBoxSubjects" Margin="5" SelectionChanged="ComboBoxSubjects_SelectionChanged" DisplayMemberPath="Subject.Name"></ComboBox>
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+            <RadioButton Margin="10">None</RadioButton>
+            <RadioButton Margin="10">Question1</RadioButton>
+            <RadioButton Margin="10">Question2</RadioButton>
+            <RadioButton Margin="10">Theory</RadioButton>
+            </StackPanel>
+            <ListBox></ListBox>
+        </StackPanel>
+        <Frame Name="Frame1" Grid.Column="1" Grid.Row="1"></Frame>
+    </Grid>
+</Window>

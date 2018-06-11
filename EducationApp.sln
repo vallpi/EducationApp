@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationApp", "EducationAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Classes", "EducationApp.Classes\App.Classes.csproj", "{196951B2-F36E-4D93-90A0-AFC8EA5B40BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Editor", "Editor\Editor\Editor.csproj", "{1C155F51-642C-4C72-B701-D6F552C007C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{196951B2-F36E-4D93-90A0-AFC8EA5B40BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{196951B2-F36E-4D93-90A0-AFC8EA5B40BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{196951B2-F36E-4D93-90A0-AFC8EA5B40BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C155F51-642C-4C72-B701-D6F552C007C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C155F51-642C-4C72-B701-D6F552C007C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C155F51-642C-4C72-B701-D6F552C007C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C155F51-642C-4C72-B701-D6F552C007C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
