@@ -40,4 +40,4 @@ v 0.3.0 Changed design of some classes. Json files were redesigned. Added DB wit
 
 v 0.3.0.1 Fixed Registration and Save methods in Repository. Added some small features in DB design. (by Pyashy)
 
-v 0.3.1 Created a new branch for sound effects. Working on sound and pictures for result window. (by vallpi)
+v 0.3.1 Added window with the result of the test and some additional files.
