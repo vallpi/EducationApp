@@ -43,6 +43,20 @@ namespace Editor
             if (RadioButton3.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer3;
             if (RadioButton4.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer4;
             EditorClass.edcl.AddQuestion1(newquestion);
+            Clear();
+        }
+
+        public void Clear()
+        {
+            TextBoxQuestion.Text = null;
+            TextBoxAnswer1.Text = null;
+            TextBoxAnswer2.Text = null;
+            TextBoxAnswer3.Text = null;
+            TextBoxAnswer4.Text = null;
+            RadioButton1.IsChecked = false;
+            RadioButton2.IsChecked = false;
+            RadioButton3.IsChecked = false;
+            RadioButton4.IsChecked = false;
         }
     }
 }

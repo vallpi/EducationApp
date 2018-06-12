@@ -12,6 +12,7 @@ namespace Editor
 {
     public class EditorClass
     {
+        public event Action AddClick;
         public static EditorClass edcl = new EditorClass();
         private static Context ctx = new Context();
         public Subject SelectedSubject;
@@ -23,15 +24,37 @@ namespace Editor
             SelectedTopic = new Topic();
         }
 
+        public List<Subject> GetSubjectList() => ctx.Subjects.ToList();
+
         public void AddQuestion1(QuestionModel1 newquestion)
         {
-            ctx.Questions1.AddOrUpdate(newquestion);
+            ctx.Questions1.AddOrUpdate(q => q.Question, newquestion);
             ctx.SaveChanges();
-            Update("../../../../EducationApp.Classes/Data", "Questions1.json");
-
+            Update("../../../../EducationApp.Classes/Data", "Questions1.json", ctx.Questions1.ToList());
         }
 
-        public void Update(string DataFolder, string FileName)
+        public void AddQuestion2(QuestionModel2 newquestion)
+        {
+            ctx.Questions2.AddOrUpdate(q => q.Question, newquestion);
+            ctx.SaveChanges();
+            Update("../../../../EducationApp.Classes/Data", "Questions2.json", ctx.Questions2.ToList());
+        }
+
+        public void AddSubject(Subject newsubject)
+        {
+            ctx.Subjects.AddOrUpdate(q => q.Name, newsubject);
+            ctx.SaveChanges();
+            Update("../../../../EducationApp.Classes/Data", "Subjects.json", ctx.Subjects.ToList());
+        }
+
+        public void AddTopic(Topic newtopic)
+        {
+            ctx.Topics.AddOrUpdate(q => q.Name, newtopic);
+            ctx.SaveChanges();
+            Update("../../../../EducationApp.Classes/Data", "Topics.json", ctx.Topics.ToList());
+        }
+
+        public void Update<T>(string DataFolder, string FileName, List<T> list) 
         {
             if (!Directory.Exists(DataFolder))
             {
@@ -42,7 +65,7 @@ namespace Editor
                 using (var jsonWriter = new JsonTextWriter(sw))
                 {
                     var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, ctx.Questions1.ToList());
+                    serializer.Serialize(jsonWriter, list);
                 }
             }
         }

@@ -14,17 +14,20 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <ComboBox Name="ComboBoxSubjects" Margin="5" SelectionChanged="ComboBoxSubjects_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
         <StackPanel Grid.Row="1">
             <StackPanel Orientation="Horizontal">
-            <RadioButton Margin="10">None</RadioButton>
-            <RadioButton Margin="10">Question1</RadioButton>
-            <RadioButton Margin="10">Question2</RadioButton>
-            <RadioButton Margin="10">Theory</RadioButton>
+            <RadioButton Name="None" Margin="10" Checked="None_Checked">None</RadioButton>
+            <RadioButton Name="Topic" Margin="10" Checked="Topic_Checked">Topic</RadioButton>
+            <RadioButton Name="Question1" Margin="10" Checked="Question1_Checked">Question1</RadioButton>
+            <RadioButton Name="Question2" Margin="10" Checked="Question2_Checked">Question2</RadioButton>
+            <RadioButton Name="Theory" Margin="10" Checked="Theory_Checked">Theory</RadioButton>
             </StackPanel>
-            <ListBox Name="ListBoxTopics" DisplayMemberPath="Name" SelectionChanged="ListBoxTopics_SelectionChanged"></ListBox>
+            <ListBox Name="ListBoxTopics" Margin="5" DisplayMemberPath="Name" SelectionChanged="ListBoxTopics_SelectionChanged"></ListBox>
         </StackPanel>
-        <Frame Name="Frame1" Grid.Column="1" Grid.RowSpan="2"></Frame>
+        <Frame Name="Frame1" Grid.Column="1" Grid.RowSpan="3"></Frame>
+        <ListBox Name="ListBoxQuestions" Margin="5" Grid.Row="3"></ListBox>
     </Grid>
 </Window>

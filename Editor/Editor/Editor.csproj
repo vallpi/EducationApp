@@ -65,8 +65,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="EditorClass.cs" />
+    <Compile Include="NonePage.xaml.cs">
+      <DependentUpon>NonePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Question1Page.xaml.cs">
       <DependentUpon>Question1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Question2Page.xaml.cs">
+      <DependentUpon>Question2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TopicPage.xaml.cs">
+      <DependentUpon>TopicPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -80,7 +89,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NonePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Question1Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Question2Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TopicPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

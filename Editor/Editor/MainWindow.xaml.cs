@@ -22,19 +22,18 @@ namespace Editor
     /// </summary>
     public partial class MainWindow : Window
     {
-        IRepository _repo = Factory.Instance.GetRepository();
 
         public MainWindow()
         {
             InitializeComponent();
-            ComboBoxSubjects.ItemsSource = _repo.GetSubjectList();
-            Frame1.NavigationService.Navigate( new Uri("Question1Page.xaml", UriKind.Relative));
+            ComboBoxSubjects.ItemsSource = EditorClass.edcl.GetSubjectList();
         }
 
         private void ComboBoxSubjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selected = (Subject)ComboBoxSubjects.SelectedItem;
             EditorClass.edcl.SelectedSubject = selected;
+            EditorClass.edcl.SelectedTopic = null;
             ListBoxTopics.ItemsSource = null;
             ListBoxTopics.ItemsSource = selected.Topics;
         }
@@ -44,5 +43,38 @@ namespace Editor
             var selected = (Topic)ListBoxTopics.SelectedItem;
             EditorClass.edcl.SelectedTopic = selected;
         }
+
+        private void None_Checked(object sender, RoutedEventArgs e)
+        {
+            if (EditorClass.edcl.SelectedSubject != null)
+                Frame1.NavigationService.Navigate(new Uri("NonePage.xaml", UriKind.Relative));
+        }
+
+        private void Topic_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Question1_Checked(object sender, RoutedEventArgs e)
+        {
+            if (EditorClass.edcl.SelectedTopic != null)
+                Frame1.NavigationService.Navigate(new Uri("Question1Page.xaml", UriKind.Relative));
+        }
+
+        private void Question2_Checked(object sender, RoutedEventArgs e)
+        {
+            if (EditorClass.edcl.SelectedTopic != null)
+                Frame1.NavigationService.Navigate(new Uri("Question2Page.xaml", UriKind.Relative));
+        }
+
+        private void Theory_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpdateAll()
+        {
+        }
+
     }
 }

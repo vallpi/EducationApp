@@ -48,4 +48,6 @@ v 0.3.3 Added Navigation to result window. (by Sandvie)
 
 v 0.3.3.1 Fixed a bug that occured when user was starting test with no topic chosen. (by Sandvie)
 
-v 0.3.4 Redesigned DB. Added working method in Editor that creates new QuestionModel1. Surrogate key Id’s are minimized.
+v 0.3.4 Redesigned DB. Added working method in Editor that creates new QuestionModel1. Surrogate key Id’s are minimized. (by Pyashy)
+
+v 0.3.5 Created pages in Editor for adding QuestionModel2, Subject, Topic to DB. (by Pyashy)
