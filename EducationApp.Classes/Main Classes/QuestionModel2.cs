@@ -10,6 +10,7 @@ namespace App.Classes
 {
     public class QuestionModel2
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Question { get; set; }
         public string CorrectAnswer { get; set; }

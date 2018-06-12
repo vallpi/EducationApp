@@ -35,6 +35,14 @@ namespace Editor
         {
             var selected = (Subject)ComboBoxSubjects.SelectedItem;
             EditorClass.edcl.SelectedSubject = selected;
+            ListBoxTopics.ItemsSource = null;
+            ListBoxTopics.ItemsSource = selected.Topics;
+        }
+
+        private void ListBoxTopics_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selected = (Topic)ListBoxTopics.SelectedItem;
+            EditorClass.edcl.SelectedTopic = selected;
         }
     }
 }

@@ -1,17 +1,1 @@
-﻿[
-  {
-    "Question": "2.1.4",
-    "CorrectAnswer": "xxx",
-    "TopicId": 4
-  },
-  {
-    "Question": "2.2.2",
-    "CorrectAnswer": "No database found. Your grade is 0",
-    "TopicId": 5
-  },
-  {
-    "Question": "2.3.1",
-    "CorrectAnswer": "9-grade essay",
-    "TopicId": 6
-  }
-]
+[{"Id":1,"Question":"2.1.4","CorrectAnswer":"xxx","TopicId":4},{"Id":2,"Question":"2.2.2","CorrectAnswer":"No database found. Your grade is 0","TopicId":5},{"Id":3,"Question":"2.3.1","CorrectAnswer":"9-grade essay","TopicId":6}]

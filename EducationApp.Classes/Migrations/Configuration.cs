@@ -59,17 +59,6 @@ namespace App.Classes.Migrations
                 }
             }
 
-            resourceName = "App.Classes.Data.Theories.json";
-            stream = assembly.GetManifestResourceStream(resourceName);
-            using (var sr = new StreamReader(stream))
-            {
-                using (var jsonReader = new JsonTextReader(sr))
-                {
-                    var theories = json.Deserialize<List<Theory>>(jsonReader).ToArray();
-                    context.Theories.AddOrUpdate(u => u.Text, theories);
-                }
-            }
-
             resourceName = "App.Classes.Data.Topics.json";
             stream = assembly.GetManifestResourceStream(resourceName);
             using (var sr = new StreamReader(stream))
@@ -80,7 +69,7 @@ namespace App.Classes.Migrations
                     context.Topics.AddOrUpdate(u => u.Name, topics);
                 }
             }
-
+            /*
             resourceName = "App.Classes.Data.Theories.json";
             stream = assembly.GetManifestResourceStream(resourceName);
             using (var sr = new StreamReader(stream))
@@ -88,9 +77,9 @@ namespace App.Classes.Migrations
                 using (var jsonReader = new JsonTextReader(sr))
                 {
                     var theories = json.Deserialize<List<Theory>>(jsonReader).ToArray();
-                    context.Theories.AddOrUpdate(u => u.Text, theories);
+                    context.Theories.AddOrUpdate();
                 }
-            }
+            } */
 
             resourceName = "App.Classes.Data.Users.json";
             stream = assembly.GetManifestResourceStream(resourceName);
@@ -102,7 +91,7 @@ namespace App.Classes.Migrations
                     context.Users.AddOrUpdate(u => u.Email, users);
                 }
             }
-
+            /*
             resourceName = "App.Classes.Data.TestResults.json";
             stream = assembly.GetManifestResourceStream(resourceName);
             using (var sr = new StreamReader(stream))
@@ -112,7 +101,8 @@ namespace App.Classes.Migrations
                     var testresults = json.Deserialize<List<TestResult>>(jsonReader).ToArray();
                     context.TestResults.AddOrUpdate(u => u.Id, testresults);
                 }
-            }
+            } */
         }
     }
 }
+

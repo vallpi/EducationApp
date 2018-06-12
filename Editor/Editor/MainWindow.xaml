@@ -15,7 +15,7 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <ComboBox Name="ComboBoxSubjects" Margin="5" SelectionChanged="ComboBoxSubjects_SelectionChanged" DisplayMemberPath="Subject.Name"></ComboBox>
+        <ComboBox Name="ComboBoxSubjects" Margin="5" SelectionChanged="ComboBoxSubjects_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
         <StackPanel Grid.Row="1">
             <StackPanel Orientation="Horizontal">
             <RadioButton Margin="10">None</RadioButton>
@@ -23,8 +23,8 @@
             <RadioButton Margin="10">Question2</RadioButton>
             <RadioButton Margin="10">Theory</RadioButton>
             </StackPanel>
-            <ListBox></ListBox>
+            <ListBox Name="ListBoxTopics" DisplayMemberPath="Name" SelectionChanged="ListBoxTopics_SelectionChanged"></ListBox>
         </StackPanel>
-        <Frame Name="Frame1" Grid.Column="1" Grid.Row="1"></Frame>
+        <Frame Name="Frame1" Grid.Column="1" Grid.RowSpan="2"></Frame>
     </Grid>
 </Window>

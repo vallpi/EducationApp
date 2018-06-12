@@ -10,7 +10,7 @@ namespace App.Classes.Main_Classes
 {
     public class TestResult
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int Score { get; set; }
 

@@ -10,6 +10,7 @@ namespace App.Classes.Main_Classes
 {
     public class Theory
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Text { get; set; }
 

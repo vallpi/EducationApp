@@ -56,13 +56,9 @@
     <Compile Include="Main Classes\ScoreItem.cs" />
     <Compile Include="Main Classes\TestResult.cs" />
     <Compile Include="Main Classes\Theory.cs" />
-    <Compile Include="Migrations\201806111216175_EA_1.cs" />
-    <Compile Include="Migrations\201806111216175_EA_1.Designer.cs">
-      <DependentUpon>201806111216175_EA_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806111222017_EA_2.cs" />
-    <Compile Include="Migrations\201806111222017_EA_2.Designer.cs">
-      <DependentUpon>201806111222017_EA_2.cs</DependentUpon>
+    <Compile Include="Migrations\201806121002152_EA_1.cs" />
+    <Compile Include="Migrations\201806121002152_EA_1.Designer.cs">
+      <DependentUpon>201806121002152_EA_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,11 +70,8 @@
     <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806111216175_EA_1.resx">
-      <DependentUpon>201806111216175_EA_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806111222017_EA_2.resx">
-      <DependentUpon>201806111222017_EA_2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806121002152_EA_1.resx">
+      <DependentUpon>201806121002152_EA_1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Data\Info.json" />

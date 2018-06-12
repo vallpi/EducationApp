@@ -9,23 +9,26 @@
       Title="Question1Page">
 
     <Grid>
-        <StackPanel Margin="50,0,0,0">
+        <StackPanel Margin="50,20,0,0">
+            <StackPanel FlowDirection="LeftToRight">
+                <Button Name="ButtonAdd" Height="20" Width="100" Click="ButtonAdd_Click">Add</Button>
+            </StackPanel>
             <Label>Question</Label>
             <TextBox Name="TextBoxQuestion"></TextBox>
             <Label>Answer1</Label>
-            <TextBox></TextBox>
+            <TextBox Name="TextBoxAnswer1"></TextBox>
             <Label>Answer2</Label>
-            <TextBox></TextBox>
+            <TextBox Name="TextBoxAnswer2"></TextBox>
             <Label>Answer3</Label>
-            <TextBox></TextBox>
+            <TextBox Name="TextBoxAnswer3"></TextBox>
             <Label>Answer4</Label>
-            <TextBox></TextBox>
+            <TextBox Name="TextBoxAnswer4"></TextBox>
             <Label>Correct</Label>
             <StackPanel>
-                <RadioButton>1</RadioButton>
-                <RadioButton>2</RadioButton>
-                <RadioButton>3</RadioButton>
-                <RadioButton>4</RadioButton>
+                <RadioButton Name="RadioButton1">1</RadioButton>
+                <RadioButton Name="RadioButton2">2</RadioButton>
+                <RadioButton Name="RadioButton3">3</RadioButton>
+                <RadioButton Name="RadioButton4">4</RadioButton>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,28 @@ namespace Editor
     /// </summary>
     public partial class Question1Page : Page
     {
+
         public Question1Page()
         {
             InitializeComponent();
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            var newquestion = new QuestionModel1
+            {
+                Question = TextBoxQuestion.Text,
+                Answer1 = TextBoxAnswer1.Text,
+                Answer2 = TextBoxAnswer2.Text,
+                Answer3 = TextBoxAnswer3.Text,
+                Answer4 = TextBoxAnswer4.Text,
+                TopicId = EditorClass.edcl.SelectedTopic.Id
+            };
+            if (RadioButton1.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer1;
+            if (RadioButton2.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer2;
+            if (RadioButton3.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer3;
+            if (RadioButton4.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer4;
+            EditorClass.edcl.AddQuestion1(newquestion);
         }
     }
 }

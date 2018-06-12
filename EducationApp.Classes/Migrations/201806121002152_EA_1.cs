@@ -28,7 +28,7 @@ namespace App.Classes.Migrations
                 "dbo.Topics",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         SubjectId = c.Int(),
                     })
@@ -40,7 +40,7 @@ namespace App.Classes.Migrations
                 "dbo.Subjects",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -74,7 +74,7 @@ namespace App.Classes.Migrations
                 "dbo.TestResults",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Score = c.Int(nullable: false),
                         TopicId = c.Int(nullable: false),
                         SubjectId = c.Int(nullable: false),
@@ -88,7 +88,7 @@ namespace App.Classes.Migrations
                 "dbo.Users",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Email = c.String(),
                         FullName = c.String(),
                         Login = c.String(),
