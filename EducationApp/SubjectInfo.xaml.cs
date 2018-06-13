@@ -83,7 +83,15 @@ namespace EducationApp
             var topic_name = (string)listBox_Themes.SelectedItem;
             if (topic_name != null)
             {
-                    this.NavigationService.Navigate(new System.Uri(_repo.GetNextQuestion(), UriKind.Relative));
+                string getnq = _repo.GetNextQuestion();
+                if (getnq != null)
+                    this.NavigationService.Navigate(new System.Uri(getnq, UriKind.Relative));
+                else
+                {
+                    var res = new Result();
+                    res.Show();
+                }
+
             }
             else
             {

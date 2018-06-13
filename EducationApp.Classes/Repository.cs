@@ -204,25 +204,25 @@ namespace App.Classes
 
         public QuestionModel1 ReturnQuestionModel1()
         {
-            var question = SelectedTopic.ChooseAnswerQuestions.FirstOrDefault(k => k.Id == question_Number);
+            var question = SelectedTopic.ChooseAnswerQuestions.FirstOrDefault(k => k.QuestionNumber == question_Number);
             question_Number++;
             return question;
         }
         
         public QuestionModel2 ReturnQuestionModel2()
         {
-            var question = SelectedTopic.WriteAnswerQuestions.FirstOrDefault(k => k.Id == question_Number);
+            var question = SelectedTopic.WriteAnswerQuestions.FirstOrDefault(k => k.QuestionNumber == question_Number);
             question_Number++;
             return question;
         }
 
         public string GetNextQuestion()
         {
-            if (SelectedTopic.ChooseAnswerQuestions.Any(n => n.Id == question_Number))
+            if (SelectedTopic.ChooseAnswerQuestions.Any(n => n.QuestionNumber == question_Number))
                 return "TestQuestion1.xaml";
-            if (SelectedTopic.WriteAnswerQuestions.Any(n => n.Id == question_Number))
+            if (SelectedTopic.WriteAnswerQuestions.Any(n => n.QuestionNumber == question_Number))
                 return "TestQuestion2.xaml";
-            return "Result.xaml";
+            return null;
         }
 
         public int ShowResult()
