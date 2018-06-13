@@ -30,12 +30,13 @@ namespace Editor
 
         private void ButtonAdd_Click()
         {
-            MessageBox.Show("!");
-            if (TextBoxQuestion.Text != null && TextBoxAnswer1.Text != null && TextBoxAnswer2.Text != null && TextBoxAnswer3.Text != null && TextBoxAnswer4.Text != null)
+            if (TextBoxQuestion.Text != null && TextBoxAnswer1.Text != null && TextBoxAnswer2.Text != null 
+                && TextBoxAnswer3.Text != null && TextBoxAnswer4.Text != null && TextBoxQuestionNumber.Text != null)
             {
                 var newquestion = new QuestionModel1
                 {
                     Question = TextBoxQuestion.Text,
+                    QuestionNumber = int.Parse(TextBoxQuestionNumber.Text),
                     Answer1 = TextBoxAnswer1.Text,
                     Answer2 = TextBoxAnswer2.Text,
                     Answer3 = TextBoxAnswer3.Text,

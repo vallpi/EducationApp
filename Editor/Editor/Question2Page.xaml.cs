@@ -29,11 +29,12 @@ namespace Editor
 
         private void ButtonAdd_Click()
         {
-            if (TextBoxQuestion.Text != null && TextBoxAnswer.Text != null)
+            if (TextBoxQuestion.Text != null && TextBoxAnswer.Text != null && TextBoxQuestionNumber.Text != null)
             {
                 var newquestion = new QuestionModel2
                 {
                     Question = TextBoxQuestion.Text,
+                    QuestionNumber = int.Parse(TextBoxQuestionNumber.Text),
                     CorrectAnswer = TextBoxAnswer.Text,
                     TopicId = EditorClass.edcl.SelectedTopic.Id
                 };

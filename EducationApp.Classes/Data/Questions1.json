@@ -3,6 +3,7 @@
   {
     "Id": 1,
     "Question": "2.1.1",
+    "QuestionNumber":  1,
     "Answer1": "2.1.1.1",
     "Answer2": "2.1.1.2",
     "Answer3": "2.1.1.3",
@@ -13,6 +14,7 @@
   {
     "Id": 2,
     "Question": "2.1.2",
+    "QuestionNumber": 2,
     "Answer1": "2.1.2.1",
     "Answer2": "2.1.2.2",
     "Answer3": "2.1.2.3",
@@ -23,6 +25,7 @@
   {
     "Id": 3,
     "Question": "2.1.3",
+    "QuestionNumber": 3,
     "Answer1": "2.1.3.1",
     "Answer2": "2.1.3.2",
     "Answer3": "2.1.3.3",
@@ -33,6 +36,7 @@
   {
     "Id": 4,
     "Question": "How early should you come to your class",
+    "QuestionNumber": 1,
     "Answer1": "You should come 10 minutes earlier",
     "Answer2": "You should come just in time",
     "Answer3": "You should come as early as you possibly can",
@@ -43,61 +47,12 @@
   {
     "Id": 5,
     "Question": "2.3.2",
+    "QuestionNumber": 1,
     "Answer1": "2.3.2.1",
     "Answer2": "2.3.2.2",
     "Answer3": "2.3.2.3",
     "Answer4": "2.3.2.4",
     "CorrectAnswer": "2.3.2.3",
     "TopicId": 6
-  },
-  {
-    "Id": 6,
-    "Question": "У кого больше за эссе?",
-    "Answer1": "У Артема",
-    "Answer2": "У Криса",
-    "Answer3": "У Лечича",
-    "Answer4": "У Твистера ",
-    "CorrectAnswer": "У Криса",
-    "TopicId": 8
-  },
-  {
-    "Id": 7,
-    "Question": "12123123",
-    "Answer1": "13213",
-    "Answer2": "31213",
-    "Answer3": "31231",
-    "Answer4": "3213213213",
-    "CorrectAnswer": "3213213213",
-    "TopicId": 1
-  },
-  {
-    "Id": 8,
-    "Question": "й",
-    "Answer1": "йй",
-    "Answer2": "ййй",
-    "Answer3": "йййй",
-    "Answer4": "ййййй",
-    "CorrectAnswer": "ййййй",
-    "TopicId": 7
-  },
-  {
-    "Id": 9,
-    "Question": "Ahaha?",
-    "Answer1": "yes",
-    "Answer2": "yES",
-    "Answer3": "No",
-    "Answer4": "nO",
-    "CorrectAnswer": "yES",
-    "TopicId": 3
-  },
-  {
-    "Id": 10,
-    "Question": "",
-    "Answer1": "",
-    "Answer2": "",
-    "Answer3": "",
-    "Answer4": "",
-    "CorrectAnswer": null,
-    "TopicId": 4
   }
 ]

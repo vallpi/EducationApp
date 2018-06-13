@@ -10,6 +10,8 @@
 
     <Grid>
         <StackPanel Margin="50,20,0,0">
+            <Label>Question Number</Label>
+            <TextBox Name="TextBoxQuestionNumber"></TextBox>
             <Label>Question</Label>
             <TextBox Name="TextBoxQuestion"></TextBox>
             <Label>Correct Answer</Label>

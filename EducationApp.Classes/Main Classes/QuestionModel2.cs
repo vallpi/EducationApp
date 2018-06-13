@@ -13,6 +13,7 @@ namespace App.Classes
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Question { get; set; }
+        public int QuestionNumber { get; set; }
         public string CorrectAnswer { get; set; }
 
         public int? TopicId { get; set; }
