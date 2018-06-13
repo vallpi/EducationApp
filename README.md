@@ -1,4 +1,4 @@
-# EducationApp
+﻿# EducationApp
 v 0.1.0 Created new project. Created two windows (for log in and for application inself). Log in window contains two pages: for log in and 
 for registration. Application window contains one page: for user and his/her progress in learning. (by vallpi)
 
@@ -53,3 +53,5 @@ v 0.3.4 Redesigned DB. Added working method in Editor that creates new QuestionM
 v 0.3.5 Created pages in Editor for adding QuestionModel2, Subject, Topic to DB. (by Pyashy)
 
 v 0.3.5.1 Fixed some details so adding questions is now almost safe. Added some features in Editor. (by Pyashy)
+
+v 0.3.6 Partially moved logic from UI to Classes. (by Sandvie)

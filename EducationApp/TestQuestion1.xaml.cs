@@ -96,7 +96,7 @@ namespace EducationApp
                 }
             }
             _repo.CheckAnswer(value, 1);
-            if (_repo.GetQuestionType() == 1)
+            if (_repo.GetNextQuestion() == "TestQuestion1.xaml")
             {
                 RadioButton1.IsChecked = false;
                 RadioButton2.IsChecked = false;
@@ -111,14 +111,7 @@ namespace EducationApp
             }
             else
             {
-                if (_repo.GetQuestionType() == 2)
-                {
-                    this.NavigationService.Navigate(new System.Uri("TestQuestion2.xaml", UriKind.Relative));
-                }
-            }
-            if (_repo.GetQuestionType() == 0)
-            {
-                this.NavigationService.Navigate(new System.Uri("Result.xaml", UriKind.Relative));
+                this.NavigationService.Navigate(new System.Uri(_repo.GetNextQuestion(), UriKind.Relative));
             }
         }
     }

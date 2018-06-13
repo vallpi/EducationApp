@@ -83,19 +83,7 @@ namespace EducationApp
             var topic_name = (string)listBox_Themes.SelectedItem;
             if (topic_name != null)
             {
-                if (_repo.GetQuestionType() == 1)
-                    this.NavigationService.Navigate(new System.Uri("TestQuestion1.xaml", UriKind.Relative));
-                else
-                {
-                    if (_repo.GetQuestionType() == 2)
-                    {
-                        this.NavigationService.Navigate(new System.Uri("TestQuestion2.xaml", UriKind.Relative));
-                    }
-                }
-                if (_repo.GetQuestionType() == 0)
-                {
-                    this.NavigationService.Navigate(new System.Uri("UserAndProgress.xaml", UriKind.Relative));
-                }
+                    this.NavigationService.Navigate(new System.Uri(_repo.GetNextQuestion(), UriKind.Relative));
             }
             else
             {

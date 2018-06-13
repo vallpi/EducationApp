@@ -216,13 +216,13 @@ namespace App.Classes
             return question;
         }
 
-        public int GetQuestionType()
+        public string GetNextQuestion()
         {
             if (SelectedTopic.ChooseAnswerQuestions.Any(n => n.Id == question_Number))
-                return 1;
+                return "TestQuestion1.xaml";
             if (SelectedTopic.WriteAnswerQuestions.Any(n => n.Id == question_Number))
-                return 2;
-            return 0;
+                return "TestQuestion2.xaml";
+            return "Result.xaml";
         }
 
         public int ShowResult()

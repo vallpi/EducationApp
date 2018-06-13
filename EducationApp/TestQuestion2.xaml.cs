@@ -70,24 +70,17 @@ namespace EducationApp
         private void ButtonNextQuestion_Click(object sender, RoutedEventArgs e)
         {
             _repo.CheckAnswer(textBox_Answer.Text, 2);
-            if (_repo.GetQuestionType() == 1)
+            if (_repo.GetNextQuestion() == "TestQuestion2.xaml")
             {
-                this.NavigationService.Navigate(new System.Uri("TestQuestion1.xaml", UriKind.Relative));
+                var question = _repo.ReturnQuestionModel2();
+                if (question != null)
+                {
+                    textBlock_Question.Text = question.Question;
+                }
             }
             else
             {
-                if (_repo.GetQuestionType() == 2)
-                {
-                    var question = _repo.ReturnQuestionModel2();
-                    if (question != null)
-                    {
-                        textBlock_Question.Text = question.Question;
-                    }
-                }
-            }
-            if (_repo.GetQuestionType() == 0)
-            {
-                this.NavigationService.Navigate(new System.Uri("Result.xaml", UriKind.Relative));
+                this.NavigationService.Navigate(new System.Uri(_repo.GetNextQuestion(), UriKind.Relative));
             }
         }
     }
