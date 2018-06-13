@@ -13,9 +13,11 @@ namespace Editor
 {
     public class EditorClass
     {
+        public static EditorClass _edcl;
+        public static EditorClass GetEditorClass() => _edcl ?? (_edcl = new EditorClass());
+
         public event Action AddClick;
         public event Action AddQ;
-        public static EditorClass edcl = new EditorClass();
         private static Context ctx = new Context();
         public Subject SelectedSubject;
         public Topic SelectedTopic;
@@ -23,14 +25,12 @@ namespace Editor
         public QuestionModel2 SelectedQuestion2;
         public Theory SelectedTheory;
 
-        public EditorClass()
-        {
-        }
 
         public List<Subject> GetSubjectList() => ctx.Subjects.ToList();
         public List<Topic> GetListTopics() => ctx.Topics.Where(u => u.SubjectId == SelectedSubject.Id).ToList();
         public List<QuestionModel1> GetListQuestions1 => ctx.Questions1.Where(u => u.TopicId == SelectedTopic.Id).ToList();
         public List<QuestionModel2> GetListQuestions2 => ctx.Questions2.Where(u => u.TopicId == SelectedTopic.Id).ToList();
+        public List<Theory> GetListTheory => ctx.Theories.Where(u => u.TopicId == SelectedTopic.Id).ToList();
 
 
         public void AddButtonClick() => AddClick();
@@ -73,6 +73,13 @@ namespace Editor
             ctx.Topics.AddOrUpdate(q => q.Name, newtopic);
             ctx.SaveChanges();
             Update("../../../../EducationApp.Classes/Data", "Topics.json", ctx.Topics.ToList());
+        }
+
+        public void AddTheory(Theory newtheory)
+        {
+            ctx.Theories.AddOrUpdate(newtheory);
+            ctx.SaveChanges();
+            Update("../../../../EducationApp.Classes/Data", "Theories.json", ctx.Theories.ToList());
         }
 
         public void Update<T>(string DataFolder, string FileName, List<T> list) 

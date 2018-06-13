@@ -61,3 +61,5 @@ v 0.3.6 Partially moved logic from UI to Classes. (by Sandvie)
 v 0.3.6.1 Added QuestionNumber fields to QuestionModel1 and QuestionModel2. Redesigned DB. (by Pyashy)
 
 v 0.3.6.2 Fixed problem with QuestionNumber. (by Pyashy)
+
+v 0.3.6.3 Fixed some details related to Editor. (by Pyashy)

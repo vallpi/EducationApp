@@ -74,6 +74,9 @@
     <Compile Include="Question2Page.xaml.cs">
       <DependentUpon>Question2Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TheoryPage.xaml.cs">
+      <DependentUpon>TheoryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TopicPage.xaml.cs">
       <DependentUpon>TopicPage.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Question2Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TheoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,5 +1,6 @@
 ﻿using App.Classes;
 using App.Classes.Interface;
+using App.Classes.Main_Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,18 +23,20 @@ namespace Editor
     /// </summary>
     public partial class MainWindow : Window
     {
+        EditorClass edcl = EditorClass.GetEditorClass();
+
         public MainWindow()
         {
             InitializeComponent();
-            ComboBoxSubjects.ItemsSource = EditorClass.edcl.GetSubjectList();
-            EditorClass.edcl.AddQ += RadioButtonUpdate;
+            ComboBoxSubjects.ItemsSource = edcl.GetSubjectList();
+            edcl.AddQ += RadioButtonUpdate;
         }
 
         private void ComboBoxSubjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selected = (Subject)ComboBoxSubjects.SelectedItem;
-            EditorClass.edcl.SelectedSubject = selected;
-            EditorClass.edcl.SelectedTopic = null;
+            edcl.SelectedSubject = selected;
+            edcl.SelectedTopic = null;
             ListBoxTopics.ItemsSource = null;
             ListBoxTopics.ItemsSource = selected.Topics;
         }
@@ -41,55 +44,66 @@ namespace Editor
         private void ListBoxTopics_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selected = (Topic)ListBoxTopics.SelectedItem;
-            EditorClass.edcl.SelectedTopic = selected;
+            edcl.SelectedTopic = selected;
             RadioButtonUpdate();
         }
 
         private void None_Checked(object sender, RoutedEventArgs e)
         {
-            if (EditorClass.edcl.SelectedSubject != null)
+            if (edcl.SelectedSubject != null)
                 Frame1.NavigationService.Navigate(new Uri("NonePage.xaml", UriKind.Relative));
             else None.IsChecked = false;
         }
 
         private void Topic_Checked(object sender, RoutedEventArgs e)
         {
-            if (EditorClass.edcl.SelectedSubject != null)
+            if (edcl.SelectedSubject != null)
                 Frame1.NavigationService.Navigate(new Uri("TopicPage.xaml", UriKind.Relative));
             else Topic.IsChecked = false;
         }
 
         private void Question1_Checked(object sender, RoutedEventArgs e)
         {
-            if (EditorClass.edcl.SelectedTopic != null)
+            if (edcl.SelectedTopic != null)
             {
                 Frame1.NavigationService.Navigate(new Uri("Question1Page.xaml", UriKind.Relative));
-                UpdateListBoxQuestions(EditorClass.edcl.GetListQuestions1);
+                UpdateListBoxQuestions(edcl.GetListQuestions1);
             }
             else Question1.IsChecked = false;
         }
 
         private void Question2_Checked(object sender, RoutedEventArgs e)
         {
-            if (EditorClass.edcl.SelectedTopic != null)
+            if (edcl.SelectedTopic != null)
             {
                 Frame1.NavigationService.Navigate(new Uri("Question2Page.xaml", UriKind.Relative));
-                UpdateListBoxQuestions(EditorClass.edcl.GetListQuestions2);
+                UpdateListBoxQuestions(edcl.GetListQuestions2);
             }
             else Question2.IsChecked = false;
         }
 
         private void Theory_Checked(object sender, RoutedEventArgs e)
         {
-            
+            if (edcl.SelectedTopic != null)
+            {
+                Frame1.NavigationService.Navigate(new Uri("TheoryPage.xaml", UriKind.Relative));
+                UpdateListBoxTheory(edcl.GetListTheory);
+            }
+            else Theory.IsChecked = false;
         }
 
         private void UpdateListBoxQuestions<T>(List<T> list)
         {
-            ListBoxQuestions.IsEnabled = true;
             ListBoxTheory.IsEnabled = false;
             ListBoxQuestions.ItemsSource = null;
             ListBoxQuestions.ItemsSource = list;
+        }
+
+        private void UpdateListBoxTheory(List<Theory> list)
+        {
+            ListBoxQuestions.IsEnabled = false;
+            ListBoxTheory.ItemsSource = null;
+            ListBoxTheory.ItemsSource = list;
         }
 
         public void RadioButtonUpdate()
@@ -120,24 +134,35 @@ namespace Editor
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            EditorClass.edcl.AddButtonClick();
+            edcl.AddButtonClick();
         }
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-            EditorClass.edcl.DeleteButtonClick(GetCheckedRadioButtonName());
+            edcl.DeleteButtonClick(GetCheckedRadioButtonName());
         }
 
         private void ListBoxQuestions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ListBoxQuestions.SelectedItem is QuestionModel1)
-                EditorClass.edcl.SelectedQuestion1 = ListBoxQuestions.SelectedItem as QuestionModel1;
-            else EditorClass.edcl.SelectedQuestion2 = ListBoxQuestions.SelectedItem as QuestionModel2;
+            {
+                edcl.SelectedQuestion1 = ListBoxQuestions.SelectedItem as QuestionModel1;
+                edcl.SelectedQuestion2 = null;
+                edcl.SelectedTheory = null;
+            }
+            else
+            {
+                edcl.SelectedQuestion2 = ListBoxQuestions.SelectedItem as QuestionModel2;
+                edcl.SelectedQuestion1 = null;
+                edcl.SelectedTheory = null;
+            }
         }
 
         private void ListBoxTheory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            edcl.SelectedTheory = ListBoxTheory.SelectedItem as Theory;
+            edcl.SelectedQuestion1 = null;
+            edcl.SelectedQuestion2 = null;
         }
     }
 }

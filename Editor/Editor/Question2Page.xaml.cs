@@ -21,10 +21,12 @@ namespace Editor
     /// </summary>
     public partial class Question2Page : Page
     {
+        EditorClass edcl = EditorClass.GetEditorClass();
+
         public Question2Page()
         {
             InitializeComponent();
-            EditorClass.edcl.AddClick += ButtonAdd_Click;
+            edcl.AddClick += ButtonAdd_Click;
         }
 
         private void ButtonAdd_Click()
@@ -36,9 +38,9 @@ namespace Editor
                     Question = TextBoxQuestion.Text,
                     QuestionNumber = int.Parse(TextBoxQuestionNumber.Text),
                     CorrectAnswer = TextBoxAnswer.Text,
-                    TopicId = EditorClass.edcl.SelectedTopic.Id
+                    TopicId = edcl.SelectedTopic.Id
                 };
-                EditorClass.edcl.AddQuestion2(newquestion);
+                edcl.AddQuestion2(newquestion);
                 Clear();
             }
         }

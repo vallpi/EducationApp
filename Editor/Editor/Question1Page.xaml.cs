@@ -21,11 +21,12 @@ namespace Editor
     /// </summary>
     public partial class Question1Page : Page
     {
+        EditorClass edcl = EditorClass.GetEditorClass();
 
         public Question1Page()
         {
             InitializeComponent();
-            EditorClass.edcl.AddClick += ButtonAdd_Click;
+            edcl.AddClick += ButtonAdd_Click;
         }
 
         private void ButtonAdd_Click()
@@ -41,13 +42,13 @@ namespace Editor
                     Answer2 = TextBoxAnswer2.Text,
                     Answer3 = TextBoxAnswer3.Text,
                     Answer4 = TextBoxAnswer4.Text,
-                    TopicId = EditorClass.edcl.SelectedTopic.Id
+                    TopicId = edcl.SelectedTopic.Id
                 };
                 if (RadioButton1.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer1;
                 if (RadioButton2.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer2;
                 if (RadioButton3.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer3;
                 if (RadioButton4.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer4;
-                EditorClass.edcl.AddQuestion1(newquestion);
+                edcl.AddQuestion1(newquestion);
                 Clear();
             }
         }

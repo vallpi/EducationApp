@@ -21,10 +21,12 @@ namespace Editor
     /// </summary>
     public partial class TopicPage : Page
     {
+        EditorClass edcl = EditorClass.GetEditorClass();
+
         public TopicPage()
         {
             InitializeComponent();
-            EditorClass.edcl.AddClick += ButtonAdd_Click;
+            edcl.AddClick += ButtonAdd_Click;
         }
 
         private void ButtonAdd_Click()
@@ -32,9 +34,9 @@ namespace Editor
             var newtopic = new Topic
             {
                 Name = TextBoxTopicName.Text,
-                SubjectId = EditorClass.edcl.SelectedSubject.Id
+                SubjectId = edcl.SelectedSubject.Id
             };
-            EditorClass.edcl.AddTopic(newtopic);
+            edcl.AddTopic(newtopic);
             Clear();
         }
 

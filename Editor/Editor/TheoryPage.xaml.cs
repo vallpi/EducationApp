@@ -1,4 +1,4 @@
-﻿using App.Classes;
+﻿using App.Classes.Main_Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,32 +17,33 @@ using System.Windows.Shapes;
 namespace Editor
 {
     /// <summary>
-    /// Логика взаимодействия для NonePage.xaml
+    /// Логика взаимодействия для TheoryPage.xaml
     /// </summary>
-    public partial class NonePage : Page
+    public partial class TheoryPage : Page
     {
         EditorClass edcl = EditorClass.GetEditorClass();
 
-
-        public NonePage()
+        public TheoryPage()
         {
             InitializeComponent();
             edcl.AddClick += ButtonAdd_Click;
         }
 
+
         private void ButtonAdd_Click()
         {
-            var newsubject = new Subject
+            var newtheory = new Theory()
             {
-                Name = TextBoxSubjectName.Text
+                Text = TextBoxTheory.Text,
+                TopicId = edcl.SelectedTopic.Id
             };
-            edcl.AddSubject(newsubject);
+            edcl.AddTheory(newtheory);
             Clear();
         }
 
         public void Clear()
         {
-            TextBoxSubjectName.Text = null;
+            TextBoxTheory.Text = null;
         }
     }
 }
