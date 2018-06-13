@@ -28,14 +28,17 @@ namespace Editor
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            var newquestion = new QuestionModel2
+            if (TextBoxQuestion.Text != null && TextBoxAnswer.Text != null)
             {
-                Question = TextBoxQuestion.Text,
-                CorrectAnswer = TextBoxAnswer.Text,
-                TopicId = EditorClass.edcl.SelectedTopic.Id
-            };
-            EditorClass.edcl.AddQuestion2(newquestion);
-            Clear();
+                var newquestion = new QuestionModel2
+                {
+                    Question = TextBoxQuestion.Text,
+                    CorrectAnswer = TextBoxAnswer.Text,
+                    TopicId = EditorClass.edcl.SelectedTopic.Id
+                };
+                EditorClass.edcl.AddQuestion2(newquestion);
+                Clear();
+            }
         }
 
         public void Clear()

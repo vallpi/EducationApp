@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <ComboBox Name="ComboBoxSubjects" Margin="5" SelectionChanged="ComboBoxSubjects_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
         <StackPanel Grid.Row="1">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Name="StackPanelRButtons" Orientation="Horizontal">
             <RadioButton Name="None" Margin="10" Checked="None_Checked">None</RadioButton>
             <RadioButton Name="Topic" Margin="10" Checked="Topic_Checked">Topic</RadioButton>
             <RadioButton Name="Question1" Margin="10" Checked="Question1_Checked">Question1</RadioButton>
@@ -27,7 +27,7 @@
             </StackPanel>
             <ListBox Name="ListBoxTopics" Margin="5" DisplayMemberPath="Name" SelectionChanged="ListBoxTopics_SelectionChanged"></ListBox>
         </StackPanel>
-        <Frame Name="Frame1" Grid.Column="1" Grid.RowSpan="3"></Frame>
-        <ListBox Name="ListBoxQuestions" Margin="5" Grid.Row="3"></ListBox>
-    </Grid>
+        <Frame Name="Frame1" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.RowSpan="3"></Frame>
+        <ListBox Name="ListBoxQuestions" Margin="5" DisplayMemberPath="Question" Grid.Row="3"></ListBox>
+    </Grid> 
 </Window>

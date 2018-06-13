@@ -29,21 +29,24 @@ namespace Editor
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            var newquestion = new QuestionModel1
+            if (TextBoxQuestion.Text != null && TextBoxAnswer1.Text != null && TextBoxAnswer2.Text != null && TextBoxAnswer3.Text != null && TextBoxAnswer4.Text != null)
             {
-                Question = TextBoxQuestion.Text,
-                Answer1 = TextBoxAnswer1.Text,
-                Answer2 = TextBoxAnswer2.Text,
-                Answer3 = TextBoxAnswer3.Text,
-                Answer4 = TextBoxAnswer4.Text,
-                TopicId = EditorClass.edcl.SelectedTopic.Id
-            };
-            if (RadioButton1.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer1;
-            if (RadioButton2.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer2;
-            if (RadioButton3.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer3;
-            if (RadioButton4.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer4;
-            EditorClass.edcl.AddQuestion1(newquestion);
-            Clear();
+                var newquestion = new QuestionModel1
+                {
+                    Question = TextBoxQuestion.Text,
+                    Answer1 = TextBoxAnswer1.Text,
+                    Answer2 = TextBoxAnswer2.Text,
+                    Answer3 = TextBoxAnswer3.Text,
+                    Answer4 = TextBoxAnswer4.Text,
+                    TopicId = EditorClass.edcl.SelectedTopic.Id
+                };
+                if (RadioButton1.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer1;
+                if (RadioButton2.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer2;
+                if (RadioButton3.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer3;
+                if (RadioButton4.IsChecked == true) newquestion.CorrectAnswer = newquestion.Answer4;
+                EditorClass.edcl.AddQuestion1(newquestion);
+                Clear();
+            }
         }
 
         public void Clear()

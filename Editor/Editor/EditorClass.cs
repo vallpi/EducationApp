@@ -12,7 +12,7 @@ namespace Editor
 {
     public class EditorClass
     {
-        public event Action AddClick;
+        public event Action AddQ;
         public static EditorClass edcl = new EditorClass();
         private static Context ctx = new Context();
         public Subject SelectedSubject;
@@ -20,17 +20,20 @@ namespace Editor
 
         public EditorClass()
         {
-            SelectedSubject = new Subject();
-            SelectedTopic = new Topic();
         }
 
         public List<Subject> GetSubjectList() => ctx.Subjects.ToList();
+        public List<Topic> GetListTopics() => ctx.Topics.Where(u => u.SubjectId == SelectedSubject.Id).ToList();
+        public List<QuestionModel1> GetListQuestions1 => ctx.Questions1.Where(u => u.TopicId == SelectedTopic.Id).ToList();
+        public List<QuestionModel2> GetListQuestions2 => ctx.Questions2.Where(u => u.TopicId == SelectedTopic.Id).ToList();
+
 
         public void AddQuestion1(QuestionModel1 newquestion)
         {
             ctx.Questions1.AddOrUpdate(q => q.Question, newquestion);
             ctx.SaveChanges();
             Update("../../../../EducationApp.Classes/Data", "Questions1.json", ctx.Questions1.ToList());
+            AddQ();
         }
 
         public void AddQuestion2(QuestionModel2 newquestion)
@@ -38,6 +41,7 @@ namespace Editor
             ctx.Questions2.AddOrUpdate(q => q.Question, newquestion);
             ctx.SaveChanges();
             Update("../../../../EducationApp.Classes/Data", "Questions2.json", ctx.Questions2.ToList());
+            AddQ();
         }
 
         public void AddSubject(Subject newsubject)
