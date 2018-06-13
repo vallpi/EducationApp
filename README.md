@@ -53,3 +53,5 @@ v 0.3.4 Redesigned DB. Added working method in Editor that creates new QuestionM
 v 0.3.5 Created pages in Editor for adding QuestionModel2, Subject, Topic to DB. (by Pyashy)
 
 v 0.3.5.1 Fixed some details so adding questions is now almost safe. Added some features in Editor. (by Pyashy)
+
+v 0.3.5.2 Added Delete function in Editor. (by Pyashy)

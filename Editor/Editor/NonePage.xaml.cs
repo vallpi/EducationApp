@@ -24,9 +24,10 @@ namespace Editor
         public NonePage()
         {
             InitializeComponent();
+            EditorClass.edcl.AddClick += ButtonAdd_Click;
         }
 
-        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_Click()
         {
             var newsubject = new Subject
             {

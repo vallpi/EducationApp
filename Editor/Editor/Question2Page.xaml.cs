@@ -24,9 +24,10 @@ namespace Editor
         public Question2Page()
         {
             InitializeComponent();
+            EditorClass.edcl.AddClick += ButtonAdd_Click;
         }
 
-        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_Click()
         {
             if (TextBoxQuestion.Text != null && TextBoxAnswer.Text != null)
             {

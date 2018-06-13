@@ -1,4 +1,5 @@
 ﻿using App.Classes;
+using App.Classes.Main_Classes;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,15 @@ namespace Editor
 {
     public class EditorClass
     {
+        public event Action AddClick;
         public event Action AddQ;
         public static EditorClass edcl = new EditorClass();
         private static Context ctx = new Context();
         public Subject SelectedSubject;
         public Topic SelectedTopic;
+        public QuestionModel1 SelectedQuestion1;
+        public QuestionModel2 SelectedQuestion2;
+        public Theory SelectedTheory;
 
         public EditorClass()
         {
@@ -27,6 +32,18 @@ namespace Editor
         public List<QuestionModel1> GetListQuestions1 => ctx.Questions1.Where(u => u.TopicId == SelectedTopic.Id).ToList();
         public List<QuestionModel2> GetListQuestions2 => ctx.Questions2.Where(u => u.TopicId == SelectedTopic.Id).ToList();
 
+
+        public void AddButtonClick() => AddClick();
+        public void DeleteButtonClick(string rbname)
+        {
+            switch (rbname)
+            {
+                case "None": DeleteSubject(); break;
+                case "Topic": DeleteTopic(); break;
+                case "Question1": DeleteQuestion1(); break;
+                case "Question2": DeleteQuestion2(); break;
+            }
+        }
 
         public void AddQuestion1(QuestionModel1 newquestion)
         {
@@ -74,65 +91,104 @@ namespace Editor
             }
         }
 
-       /* public void UpdateAll()
+        public void DeleteSubject()
         {
-            using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Questions1.json"))
+            if (!SelectedSubject.Topics.Any())
             {
-                using (var jsonWriter = new JsonTextWriter(sw))
-                {
-                    var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, ctx.Questions1.ToList());
-                }
+                ctx.Subjects.Remove(SelectedSubject);
+                ctx.SaveChanges();
+                Update("../../../../EducationApp.Classes/Data", "Subjects.json", ctx.Subjects.ToList());
             }
-            using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Questions2.json"))
+        }
+
+        public void DeleteTopic()
+        {
+            if (!(SelectedTopic.ChooseAnswerQuestions.Any() || SelectedTopic.WriteAnswerQuestions.Any() || SelectedTopic.TheoryText.Any()))
             {
-                using (var jsonWriter = new JsonTextWriter(sw))
-                {
-                    var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, ctx.Questions2.ToList());
-                }
+                foreach (TestResult tr in ctx.TestResults.Where(t => t.TopicId == SelectedTopic.Id))
+                    ctx.TestResults.Remove(tr);
+                ctx.Topics.Remove(SelectedTopic);
+                ctx.SaveChanges();
+                Update("../../../../EducationApp.Classes/Data", "Topics.json", ctx.Topics.ToList());
+                Update("../../../../EducationApp.Classes/Data", "TestResults.json", ctx.TestResults.ToList());
             }
-            using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Subjects.json"))
-            {
-                using (var jsonWriter = new JsonTextWriter(sw))
-                {
-                    var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, ctx.Subjects.ToList());
-                }
-            }
-            using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/TestResults.json"))
-            {
-                using (var jsonWriter = new JsonTextWriter(sw))
-                {
-                    var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, ctx.TestResults.ToList());
-                }
-            }
-            using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Theories.json"))
-            {
-                using (var jsonWriter = new JsonTextWriter(sw))
-                {
-                    var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, ctx.Theories.ToList());
-                }
-            }
-            using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Topics.json"))
-            {
-                using (var jsonWriter = new JsonTextWriter(sw))
-                {
-                    var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, ctx.Topics.ToList());
-                }
-            }
-            using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Users.json"))
-            {
-                using (var jsonWriter = new JsonTextWriter(sw))
-                {
-                    var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, ctx.Users.ToList());
-                }
-            }
-        } */
+        }
+
+        public void DeleteQuestion1()
+        {
+            ctx.Questions1.Remove(SelectedQuestion1);
+            ctx.SaveChanges();
+            Update("../../../../EducationApp.Classes/Data", "Questions1.json", ctx.Questions1.ToList());
+            AddQ();
+        }
+
+        public void DeleteQuestion2()
+        {
+            ctx.Questions2.Remove(SelectedQuestion2);
+            ctx.SaveChanges();
+            Update("../../../../EducationApp.Classes/Data", "Questions2.json", ctx.Questions2.ToList());
+            AddQ();
+        }
+
+        /* public void UpdateAll()
+         {
+             using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Questions1.json"))
+             {
+                 using (var jsonWriter = new JsonTextWriter(sw))
+                 {
+                     var serializer = new JsonSerializer();
+                     serializer.Serialize(jsonWriter, ctx.Questions1.ToList());
+                 }
+             }
+             using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Questions2.json"))
+             {
+                 using (var jsonWriter = new JsonTextWriter(sw))
+                 {
+                     var serializer = new JsonSerializer();
+                     serializer.Serialize(jsonWriter, ctx.Questions2.ToList());
+                 }
+             }
+             using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Subjects.json"))
+             {
+                 using (var jsonWriter = new JsonTextWriter(sw))
+                 {
+                     var serializer = new JsonSerializer();
+                     serializer.Serialize(jsonWriter, ctx.Subjects.ToList());
+                 }
+             }
+             using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/TestResults.json"))
+             {
+                 using (var jsonWriter = new JsonTextWriter(sw))
+                 {
+                     var serializer = new JsonSerializer();
+                     serializer.Serialize(jsonWriter, ctx.TestResults.ToList());
+                 }
+             }
+             using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Theories.json"))
+             {
+                 using (var jsonWriter = new JsonTextWriter(sw))
+                 {
+                     var serializer = new JsonSerializer();
+                     serializer.Serialize(jsonWriter, ctx.Theories.ToList());
+                 }
+             }
+             using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Topics.json"))
+             {
+                 using (var jsonWriter = new JsonTextWriter(sw))
+                 {
+                     var serializer = new JsonSerializer();
+                     serializer.Serialize(jsonWriter, ctx.Topics.ToList());
+                 }
+             }
+             using (var sw = new StreamWriter("../../../../EducationApp.Classes/Data/Users.json"))
+             {
+                 using (var jsonWriter = new JsonTextWriter(sw))
+                 {
+                     var serializer = new JsonSerializer();
+                     serializer.Serialize(jsonWriter, ctx.Users.ToList());
+                 }
+             }
+         } */
 
     }
 }

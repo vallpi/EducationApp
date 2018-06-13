@@ -10,9 +10,6 @@
 
     <Grid>
         <StackPanel Margin="50,20,0,0">
-            <StackPanel FlowDirection="LeftToRight">
-                <Button Name="ButtonAdd" Height="20" Width="100" Click="ButtonAdd_Click">Add</Button>
-            </StackPanel>
             <Label>Question</Label>
             <TextBox Name="TextBoxQuestion"></TextBox>
             <Label>Answer1</Label>

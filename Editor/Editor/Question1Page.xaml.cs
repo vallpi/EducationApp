@@ -25,10 +25,12 @@ namespace Editor
         public Question1Page()
         {
             InitializeComponent();
+            EditorClass.edcl.AddClick += ButtonAdd_Click;
         }
 
-        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_Click()
         {
+            MessageBox.Show("!");
             if (TextBoxQuestion.Text != null && TextBoxAnswer1.Text != null && TextBoxAnswer2.Text != null && TextBoxAnswer3.Text != null && TextBoxAnswer4.Text != null)
             {
                 var newquestion = new QuestionModel1

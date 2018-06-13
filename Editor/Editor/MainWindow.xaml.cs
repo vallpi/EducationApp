@@ -22,7 +22,6 @@ namespace Editor
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
@@ -87,6 +86,8 @@ namespace Editor
 
         private void UpdateListBoxQuestions<T>(List<T> list)
         {
+            ListBoxQuestions.IsEnabled = true;
+            ListBoxTheory.IsEnabled = false;
             ListBoxQuestions.ItemsSource = null;
             ListBoxQuestions.ItemsSource = list;
         }
@@ -102,6 +103,41 @@ namespace Editor
                     rb.IsChecked = true;
                 }
             }
+        }
+
+        private string GetCheckedRadioButtonName()
+        {
+            foreach (Control c in StackPanelRButtons.Children)
+            {
+                RadioButton rb = c as RadioButton;
+                if (rb.IsChecked.Value)
+                {
+                    return rb.Content.ToString();
+                }
+            }
+            return null;
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            EditorClass.edcl.AddButtonClick();
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            EditorClass.edcl.DeleteButtonClick(GetCheckedRadioButtonName());
+        }
+
+        private void ListBoxQuestions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ListBoxQuestions.SelectedItem is QuestionModel1)
+                EditorClass.edcl.SelectedQuestion1 = ListBoxQuestions.SelectedItem as QuestionModel1;
+            else EditorClass.edcl.SelectedQuestion2 = ListBoxQuestions.SelectedItem as QuestionModel2;
+        }
+
+        private void ListBoxTheory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
