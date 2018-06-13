@@ -24,9 +24,10 @@ namespace Editor
         public TopicPage()
         {
             InitializeComponent();
+            EditorClass.edcl.AddClick += ButtonAdd_Click;
         }
 
-        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_Click()
         {
             var newtopic = new Topic
             {

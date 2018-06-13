@@ -54,4 +54,6 @@ v 0.3.5 Created pages in Editor for adding QuestionModel2, Subject, Topic to DB.
 
 v 0.3.5.1 Fixed some details so adding questions is now almost safe. Added some features in Editor. (by Pyashy)
 
+v 0.3.5.2 Added Delete function in Editor. (by Pyashy)
+
 v 0.3.6 Partially moved logic from UI to Classes. (by Sandvie)

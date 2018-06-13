@@ -27,7 +27,12 @@
             </StackPanel>
             <ListBox Name="ListBoxTopics" Margin="5" DisplayMemberPath="Name" SelectionChanged="ListBoxTopics_SelectionChanged"></ListBox>
         </StackPanel>
-        <Frame Name="Frame1" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.RowSpan="3"></Frame>
-        <ListBox Name="ListBoxQuestions" Margin="5" DisplayMemberPath="Question" Grid.Row="3"></ListBox>
+        <Frame Name="Frame1" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"></Frame>
+        <ListBox IsEnabled="False" Name="ListBoxQuestions" Margin="5" DisplayMemberPath="Question" Grid.Row="3" SelectionChanged="ListBoxQuestions_SelectionChanged"></ListBox>
+        <ListBox IsEnabled="False" Name="ListBoxTheory" Margin="5" DisplayMemberPath="Question" Grid.Row="3" SelectionChanged="ListBoxTheory_SelectionChanged"></ListBox>
+        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" Grid.Column="2">
+            <Button Margin="10" Width="100" Click="ButtonAdd_Click">Add</Button>
+            <Button Margin="10" Width="100" Click="ButtonDelete_Click">Delete</Button>
+        </StackPanel>
     </Grid> 
 </Window>
