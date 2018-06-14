@@ -52,7 +52,7 @@
             </Button.Template>
         </Button>
         <Label Margin="20,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <Hyperlink Foreground="#B22222" NavigateUri="UserAndProgress.xaml">
+            <Hyperlink Click="Hyperlink_Click" Foreground="#B22222" NavigateUri="UserAndProgress.xaml">
                 <Image Source="Resources/HomeIcon.png" Height="30" Width="30"/>
             </Hyperlink>
         </Label>

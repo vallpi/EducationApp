@@ -83,14 +83,14 @@ namespace App.Classes
         {
             if (questionType == 1)
             { 
-                if (answer == SelectedTopic.ChooseAnswerQuestions.Where(n => n.Id == question_Number-1).Select(k => k.CorrectAnswer).FirstOrDefault())
+                if (answer == SelectedTopic.ChooseAnswerQuestions.Where(n => n.QuestionNumber == question_Number-1).Select(k => k.CorrectAnswer).FirstOrDefault())
                 {
                     score++;
                 }
             }
             else
             {
-                if (answer == SelectedTopic.WriteAnswerQuestions.Where(n => n.Id == question_Number-1).Select(k => k.CorrectAnswer).FirstOrDefault())
+                if (answer == SelectedTopic.WriteAnswerQuestions.Where(n => n.QuestionNumber == question_Number-1).Select(k => k.CorrectAnswer).FirstOrDefault())
                 {
                     score++;
                 }
@@ -148,32 +148,44 @@ namespace App.Classes
                 ctx.SaveChanges();
                 User user = ctx.Users.Where(n => n.Email == email).FirstOrDefault();
                 _data.Users.Add(user);
-                Save();
+                Save("Users");
                 _authorizedUser = user;
                 return true;
             }
             return false;
         }
         //Сохранение Data в файл
-        private void Save()
+        private void Save(string type)
         {
             if (!Directory.Exists(DataFolder))
             {
                 Directory.CreateDirectory(DataFolder);
             }
-            using (var sw = new StreamWriter("../../../EducationApp.Classes/Data/Users.json"))
+            using (var sw = new StreamWriter(GetPath(type)))
             {
                 using (var jsonWriter = new JsonTextWriter(sw))
                 {
                     var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, ctx.Users.ToList());
+                    switch (type)
+                    {
+                        case "Users":
+                            {
+                                serializer.Serialize(jsonWriter, ctx.Users.ToList());
+                                break;
+                            }
+                        case "TestResults":
+                            {
+                                serializer.Serialize(jsonWriter, ctx.TestResults.Where(n => n.UserId == _authorizedUser.Id).ToList());
+                                break;
+                            }
+                    }
                 }
             }
         }
         public IEnumerable<ScoreItem> GetScore()
         {
             List<ScoreItem> Score = new List<ScoreItem>();
-            if (_authorizedUser.TestResults != null)
+            if ((_authorizedUser.TestResults != null) && (_authorizedUser.TestResults.Count != 0))
             {
                 foreach (var testres in _authorizedUser.TestResults)
                 {
@@ -190,19 +202,25 @@ namespace App.Classes
             if (_authorizedUser.TestResults != null)
             {
                 if (!_authorizedUser.TestResults.Any(n => n.TopicId == SelectedTopic.Id))
-                    _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, Score = score, TopicId = SelectedTopic.Id });
+                {
+                    _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, SubjectId = SelectedSubject.Id, UserId = _authorizedUser.Id, Score = score, TopicId = SelectedTopic.Id });
+                    ctx.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, UserId = _authorizedUser.Id, SubjectId = SelectedSubject.Id, Score = score, TopicId = SelectedTopic.Id });
+                }
                 else
                 {
                     var e = _authorizedUser.TestResults.Where(s => s.TopicId == SelectedTopic.Id).First();
                     e.Score = score;
+                    var testres = ctx.TestResults.Where(t => t.UserId == _authorizedUser.Id).Where(k => k.TopicId == SelectedTopic.Id).First();
+                    ctx.TestResults.AddOrUpdate(u => u.TopicId, testres);
                 }
             }
             else
             {
                 _authorizedUser.TestResults = new List<TestResult>();
-                _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, Score = score, TopicId = SelectedTopic.Id });
+                _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, UserId = _authorizedUser.Id, SubjectId = SelectedSubject.Id, Score = score, TopicId = SelectedTopic.Id });
+                ctx.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, UserId = _authorizedUser.Id, SubjectId = SelectedSubject.Id, Score = score, TopicId = SelectedTopic.Id });
             }
-            Save();
+            Save("TestResults");
             score = 0;
             question_Number = 1;
             return;

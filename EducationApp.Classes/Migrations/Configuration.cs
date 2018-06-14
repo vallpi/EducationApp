@@ -91,7 +91,7 @@ namespace App.Classes.Migrations
                     context.Users.AddOrUpdate(u => u.Email, users);
                 }
             }
-            /*
+            
             resourceName = "App.Classes.Data.TestResults.json";
             stream = assembly.GetManifestResourceStream(resourceName);
             using (var sr = new StreamReader(stream))
@@ -99,9 +99,9 @@ namespace App.Classes.Migrations
                 using (var jsonReader = new JsonTextReader(sr))
                 {
                     var testresults = json.Deserialize<List<TestResult>>(jsonReader).ToArray();
-                    context.TestResults.AddOrUpdate(u => u.Id, testresults);
+                    context.TestResults.AddOrUpdate(testresults);
                 }
-            } */
+            }
         }
     }
 }

@@ -33,19 +33,19 @@ namespace EducationApp
 
             if (result < 5)
             {
-                textBlock_Result.Text = "Результат: " + result.ToString() + " / 10";
+                textBlock_Result.Text = "Результат: " + result + " / 10";
                 image_Result.Source = new BitmapImage(new Uri(@"Resources/Affleck_meme.jpg", UriKind.Relative));
                 mediaElement_music.Source = new Uri(@"Resources/Sad_Soundtrack.mp3", UriKind.Relative);
             }
             else if (result < 8)
             {
-                textBlock_Result.Text = "Результат: " + result.ToString() + " / 10";
+                textBlock_Result.Text = "Результат: " + result + " / 10";
                 image_Result.Source = new BitmapImage(new Uri(@"Resources/Deadpool_meme.jpg", UriKind.Relative));
                 mediaElement_music.Source = new Uri(@"Resources/Maximum_Effort_Deadpool.mp3", UriKind.Relative);
             }
             else
             {
-                textBlock_Result.Text = "Результат: " + result.ToString() + " / 10";
+                textBlock_Result.Text = "Результат: " + result + " / 10";
                 image_Result.Source = new BitmapImage(new Uri(@"Resources/Pewdiepie_meme.jpg", UriKind.Relative));
                 mediaElement_music.Source = new Uri(@"Resources/Vary_Naice_Pewdiepie.mp3", UriKind.Relative);
             }

@@ -115,10 +115,16 @@ namespace EducationApp
                 else
                 {
                     var res = new Result();
+                    res.ShowActivated = false;
                     res.Show();
                     this.NavigationService.Navigate(new Uri("SubjectInfo.xaml", UriKind.Relative));
                 }
             }
+        }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            _repo.interruptTest();
         }
     }
 }
