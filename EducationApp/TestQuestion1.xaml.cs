@@ -33,9 +33,7 @@ namespace EducationApp
             textBlock_Answer2.Text = question.Answer2;
             textBlock_Answer3.Text = question.Answer3;
             textBlock_Answer4.Text = question.Answer4;
-            textBlock_Subject1.Text = _repo.GetSubject(1);
-            textBlock_Subject2.Text = _repo.GetSubject(2);
-            textBlock_Subject3.Text = _repo.GetSubject(3);
+            TextBlockSubject.Text = _repo.GetSelectedSubjectString();
             listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
         }
 
@@ -118,6 +116,7 @@ namespace EducationApp
                 {
                     var res = new Result();
                     res.Show();
+                    this.NavigationService.Navigate(new Uri("SubjectInfo.xaml", UriKind.Relative));
                 }
             }
         }

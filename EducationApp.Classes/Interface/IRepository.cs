@@ -14,6 +14,7 @@ namespace App.Classes.Interface
         string GetUserData(string requiredData);
         string GetSubject(int Id);
         List<Subject> GetSubjectList();
+        string GetSelectedSubjectString();
         List<string> ReturnSubjectTopics();
         void SelectSubject(int Id);
         List<Theory> GetTopicTheory(string topic_Name);

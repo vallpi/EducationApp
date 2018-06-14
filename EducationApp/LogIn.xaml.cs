@@ -46,7 +46,7 @@ namespace EducationApp
             if (_repo.Authorization(textBox_Login.Text, passwordBox_Password.Password.ToString()))
             {
                 AppWindow app = new AppWindow();
-                app.ShowDialog();
+                app.Show();
             }
             else
                 MessageBox.Show("Неверный Email или пароль");

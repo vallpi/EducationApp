@@ -37,9 +37,7 @@ namespace EducationApp
                 UserAndProgress userAndProgress = new UserAndProgress();
                 NavigationService.Navigate(userAndProgress);
             }
-            textBlock_Subject1.Text = _repo.GetSubject(1);
-            textBlock_Subject2.Text = _repo.GetSubject(2);
-            textBlock_Subject3.Text = _repo.GetSubject(3);
+            TextBlockSubject.Text = _repo.GetSelectedSubjectString();
             listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
         }
 
@@ -87,6 +85,7 @@ namespace EducationApp
                 {
                     var res = new Result();
                     res.Show();
+                    this.NavigationService.Navigate(new Uri("SubjectInfo.xaml", UriKind.Relative));
                 }
             }
         }

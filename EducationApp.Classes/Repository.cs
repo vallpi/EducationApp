@@ -103,6 +103,12 @@ namespace App.Classes
             var theoryText = SelectedSubject.Topics.Where(n => n.Name == topic_Name).Select(k => k.TheoryText).First();
             return theoryText;
         }
+
+        public string GetSelectedSubjectString()
+        {
+            return SelectedSubject.Name;
+        }
+
         // Получение информации о предметах
         public string GetSubject(int Id)
         {

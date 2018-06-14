@@ -10,7 +10,7 @@
 
     <Grid Background="#FFF8DC">
         <ScrollViewer>
-            <DataGrid x:Name="dataGrid_Progress" RowBackground="#FFF8DC" Background="#FFF8DC" GridLinesVisibility="All" HorizontalGridLinesBrush="#B22222" AutoGenerateColumns="False" BorderThickness="0" FontSize="18" RowHeight="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <DataGrid x:Name="dataGrid_Progress" IsReadOnly="True" RowBackground="#FFF8DC" Background="#FFF8DC" GridLinesVisibility="All" HorizontalGridLinesBrush="#B22222" AutoGenerateColumns="False" BorderThickness="0" FontSize="18" RowHeight="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#FFF8DC" />
