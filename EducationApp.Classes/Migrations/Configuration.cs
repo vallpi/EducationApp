@@ -101,11 +101,7 @@ namespace App.Classes.Migrations
                     var testresults = json.Deserialize<List<TestResult>>(jsonReader).ToArray();
                     context.TestResults.AddOrUpdate(testresults);
                 }
-<<<<<<< HEAD
             }
-=======
-            } 
->>>>>>> a67ccd6bdfa4e18679087f79924ca159b7ea0ec7
         }
     }
 }
