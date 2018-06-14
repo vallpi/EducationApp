@@ -74,6 +74,7 @@ namespace EducationApp
                 if (question != null)
                 {
                     textBlock_Question.Text = question.Question;
+                    textBox_Answer.Text = null;
                 }
             }
             else
