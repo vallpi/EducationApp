@@ -57,27 +57,6 @@ namespace EducationApp
             list.Add(text);
         }
 
-        private void Hyperlink1_Click(object sender, RoutedEventArgs e)
-        {
-            _repo.SelectSubject(1);
-            listBox_Themes.ItemsSource = null;
-            listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
-        }
-
-        private void Hyperlink2_Click(object sender, RoutedEventArgs e)
-        {
-            _repo.SelectSubject(2);
-            listBox_Themes.ItemsSource = null;
-            listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
-        }
-
-        private void Hyperlink3_Click(object sender, RoutedEventArgs e)
-        {
-            _repo.SelectSubject(3);
-            listBox_Themes.ItemsSource = null;
-            listBox_Themes.ItemsSource = _repo.ReturnSubjectTopics();
-        }
-
         private void ButtonStartTest_Click(object sender, RoutedEventArgs e)
         {
             var topic_name = (string)listBox_Themes.SelectedItem;
@@ -107,7 +86,7 @@ namespace EducationApp
             {
                 var theory = _repo.GetTopicTheory(topic_name);
                 for (int i = 0; i < theory.Count; i++)
-                    textBlock_ThemeTheory.Text += theory[i].Text + Environment.NewLine;
+                    textBlock_ThemeTheory.Text += theory[i].Text + Environment.NewLine + Environment.NewLine;
             }
         }
 

@@ -52,7 +52,7 @@ namespace Editor
 
         private void None_Checked(object sender, RoutedEventArgs e)
         {
-            if (edcl.SelectedSubject != null)
+            if (edcl.SelectedSubject != null || ComboBoxSubjects.Items.Count == 0)
                 Frame1.NavigationService.Navigate(new Uri("NonePage.xaml", UriKind.Relative));
             else None.IsChecked = false;
         }

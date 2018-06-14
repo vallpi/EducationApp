@@ -81,10 +81,6 @@
       <DependentUpon>201806131815376_EA_2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Data\Info.json" />
-    <None Include="Data\Kris+Twister=disastah.json" />
-    <None Include="Data\Mahboroda.json" />
-    <None Include="Data\Memes.json" />
     <EmbeddedResource Include="Data\Questions1.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
