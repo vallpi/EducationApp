@@ -65,3 +65,5 @@ v 0.3.6.2 Fixed problem with QuestionNumber. (by Pyashy)
 v 0.3.6.3 Fixed some details related to Editor. (by Pyashy)
 
 v 0.3.6.4 Fixed some details in Editor. (by Pyashy)
+
+v 0.3.6.5 Modified the Editor class. (by Pyashy)

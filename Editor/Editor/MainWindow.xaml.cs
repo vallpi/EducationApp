@@ -29,6 +29,8 @@ namespace Editor
         {
             InitializeComponent();
             ComboBoxSubjects.ItemsSource = edcl.GetSubjectList();
+            edcl.UpdateTopics += UpdateListBoxTopics;
+            edcl.UpdateSubjects += UpdateComboBoxSubjects;
         }
 
         private void ComboBoxSubjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -37,7 +39,8 @@ namespace Editor
             edcl.SelectedSubject = selected;
             edcl.SelectedTopic = null;
             ListBoxTopics.ItemsSource = null;
-            ListBoxTopics.ItemsSource = selected.Topics;
+            if (selected != null)
+                ListBoxTopics.ItemsSource = selected.Topics;
         }
 
         private void ListBoxTopics_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -113,6 +116,12 @@ namespace Editor
         {
             ListBoxTopics.ItemsSource = null;
             ListBoxTopics.ItemsSource = edcl.GetListTopics();
+        }
+
+        public void UpdateComboBoxSubjects()
+        {
+            ComboBoxSubjects.ItemsSource = null;
+            ComboBoxSubjects.ItemsSource = edcl.GetSubjectList();
         }
 
         public void RadioButtonUpdate()

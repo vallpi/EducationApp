@@ -16,6 +16,9 @@ namespace Editor
         public static EditorClass _edcl;
         public static EditorClass GetEditorClass() => _edcl ?? (_edcl = new EditorClass());
 
+
+        public event Action UpdateTopics;
+        public event Action UpdateSubjects;
         public event Action AddClick;
         private static Context ctx = new Context();
         public Subject SelectedSubject;
@@ -64,6 +67,7 @@ namespace Editor
             ctx.Subjects.AddOrUpdate(q => q.Name, newsubject);
             ctx.SaveChanges();
             Update("../../../../EducationApp.Classes/Data", "Subjects.json", ctx.Subjects.ToList());
+            UpdateSubjects();
         }
 
         public void AddTopic(Topic newtopic)
@@ -71,6 +75,7 @@ namespace Editor
             ctx.Topics.AddOrUpdate(q => q.Name, newtopic);
             ctx.SaveChanges();
             Update("../../../../EducationApp.Classes/Data", "Topics.json", ctx.Topics.ToList());
+            UpdateTopics();
         }
 
         public void AddTheory(Theory newtheory)
@@ -103,6 +108,7 @@ namespace Editor
                 ctx.Subjects.Remove(SelectedSubject);
                 ctx.SaveChanges();
                 Update("../../../../EducationApp.Classes/Data", "Subjects.json", ctx.Subjects.ToList());
+                UpdateSubjects();
             }
         }
 
@@ -116,6 +122,7 @@ namespace Editor
                 ctx.SaveChanges();
                 Update("../../../../EducationApp.Classes/Data", "Topics.json", ctx.Topics.ToList());
                 Update("../../../../EducationApp.Classes/Data", "TestResults.json", ctx.TestResults.ToList());
+                UpdateTopics();
             }
         }
 

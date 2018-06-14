@@ -18,14 +18,14 @@
         </Grid.RowDefinitions>
         <ComboBox Name="ComboBoxSubjects" Margin="5" SelectionChanged="ComboBoxSubjects_SelectionChanged" DisplayMemberPath="Name"></ComboBox>
         <StackPanel Grid.Row="1">
-            <StackPanel Name="StackPanelRButtons" Orientation="Horizontal">
-            <RadioButton Name="None" Margin="10" Checked="None_Checked">None</RadioButton>
-            <RadioButton Name="Topic" Margin="10" Checked="Topic_Checked">Topic</RadioButton>
-            <RadioButton Name="Question1" Margin="10" Checked="Question1_Checked">Question1</RadioButton>
-            <RadioButton Name="Question2" Margin="10" Checked="Question2_Checked">Question2</RadioButton>
-            <RadioButton Name="Theory" Margin="10" Checked="Theory_Checked">Theory</RadioButton>
-            </StackPanel>
             <ListBox Name="ListBoxTopics" Margin="5" DisplayMemberPath="Name" SelectionChanged="ListBoxTopics_SelectionChanged"></ListBox>
+            <StackPanel Name="StackPanelRButtons" Orientation="Horizontal">
+                <RadioButton Name="None" Margin="10" Checked="None_Checked">None</RadioButton>
+                <RadioButton Name="Topic" Margin="10" Checked="Topic_Checked">Topic</RadioButton>
+                <RadioButton Name="Question1" Margin="10" Checked="Question1_Checked">Question1</RadioButton>
+                <RadioButton Name="Question2" Margin="10" Checked="Question2_Checked">Question2</RadioButton>
+                <RadioButton Name="Theory" Margin="10" Checked="Theory_Checked">Theory</RadioButton>
+            </StackPanel>
         </StackPanel>
         <Frame Name="Frame1" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"></Frame>
         <StackPanel Grid.Row="2" FlowDirection="LeftToRight" Orientation="Horizontal">
