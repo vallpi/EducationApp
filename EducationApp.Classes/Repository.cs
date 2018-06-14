@@ -29,7 +29,7 @@ namespace App.Classes
         private Data _data = new Data();
         private User _authorizedUser;
         private Subject SelectedSubject;
-        private const string DataFolder = "../../Data";
+        private const string DataFolder = "../App.Classes/Data";
         private const string FileName = "Info.json";
         // Кодировка пароля
         private static string GetHash(string password)
@@ -175,7 +175,8 @@ namespace App.Classes
                             }
                         case "TestResults":
                             {
-                                serializer.Serialize(jsonWriter, ctx.TestResults.Where(n => n.UserId == _authorizedUser.Id).ToList());
+                                var testres = ctx.TestResults.ToList();
+                                serializer.Serialize(jsonWriter, testres);
                                 break;
                             }
                     }
@@ -185,6 +186,21 @@ namespace App.Classes
         public IEnumerable<ScoreItem> GetScore()
         {
             List<ScoreItem> Score = new List<ScoreItem>();
+            for(int i = 0; i < _authorizedUser.TestResults.Count; i++)
+            {
+                for(int k = i+1; k < _authorizedUser.TestResults.Count; k++)
+                {
+                    if((_authorizedUser.TestResults[i].SubjectId == _authorizedUser.TestResults[k].SubjectId) && (_authorizedUser.TestResults[i].TopicId == _authorizedUser.TestResults[k].TopicId))
+                    {
+                        for(int l = k+1; l<_authorizedUser.TestResults.Count; l++)
+                        {
+                            _authorizedUser.TestResults[l - 1] = _authorizedUser.TestResults[l];
+                        }
+                        if (k == _authorizedUser.TestResults.Count-1)
+                            _authorizedUser.TestResults.RemoveAt(k);
+                    }
+                }
+            }
             if ((_authorizedUser.TestResults != null) && (_authorizedUser.TestResults.Count != 0))
             {
                 foreach (var testres in _authorizedUser.TestResults)
@@ -205,6 +221,7 @@ namespace App.Classes
                 {
                     _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, SubjectId = SelectedSubject.Id, UserId = _authorizedUser.Id, Score = score, TopicId = SelectedTopic.Id });
                     ctx.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, UserId = _authorizedUser.Id, SubjectId = SelectedSubject.Id, Score = score, TopicId = SelectedTopic.Id });
+                    ctx.SaveChanges();
                 }
                 else
                 {
@@ -212,6 +229,7 @@ namespace App.Classes
                     e.Score = score;
                     var testres = ctx.TestResults.Where(t => t.UserId == _authorizedUser.Id).Where(k => k.TopicId == SelectedTopic.Id).First();
                     ctx.TestResults.AddOrUpdate(u => u.TopicId, testres);
+                    ctx.SaveChanges();
                 }
             }
             else
@@ -219,6 +237,7 @@ namespace App.Classes
                 _authorizedUser.TestResults = new List<TestResult>();
                 _authorizedUser.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, UserId = _authorizedUser.Id, SubjectId = SelectedSubject.Id, Score = score, TopicId = SelectedTopic.Id });
                 ctx.TestResults.Add(new TestResult { Id = _authorizedUser.TestResults.Count, UserId = _authorizedUser.Id, SubjectId = SelectedSubject.Id, Score = score, TopicId = SelectedTopic.Id });
+                ctx.SaveChanges();
             }
             Save("TestResults");
             score = 0;

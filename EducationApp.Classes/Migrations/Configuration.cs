@@ -77,11 +77,7 @@ namespace App.Classes.Migrations
                 using (var jsonReader = new JsonTextReader(sr))
                 {
                     var theories = json.Deserialize<List<Theory>>(jsonReader).ToArray();
-                    foreach (Theory t in theories)
-                    {
-                        if (!context.Theories.Any(u => u.Text == t.Text))
-                            context.Theories.AddOrUpdate(t);
-                    }
+                    context.Theories.AddOrUpdate();
                 }
             } 
 
@@ -103,11 +99,7 @@ namespace App.Classes.Migrations
                 using (var jsonReader = new JsonTextReader(sr))
                 {
                     var testresults = json.Deserialize<List<TestResult>>(jsonReader).ToArray();
-                    foreach (TestResult t in testresults)
-                    {
-                        if (!(context.TestResults.Any(u => u.UserId == t.UserId) && context.TestResults.Any(u => u.TopicId == t.TopicId)))
-                            context.TestResults.AddOrUpdate(t);
-                    }
+                    context.TestResults.AddOrUpdate(testresults);
                 }
             }
         }
