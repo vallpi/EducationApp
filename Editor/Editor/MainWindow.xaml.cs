@@ -29,7 +29,6 @@ namespace Editor
         {
             InitializeComponent();
             ComboBoxSubjects.ItemsSource = edcl.GetSubjectList();
-            edcl.AddQ += RadioButtonUpdate;
         }
 
         private void ComboBoxSubjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -58,7 +57,9 @@ namespace Editor
         private void Topic_Checked(object sender, RoutedEventArgs e)
         {
             if (edcl.SelectedSubject != null)
+            {
                 Frame1.NavigationService.Navigate(new Uri("TopicPage.xaml", UriKind.Relative));
+            }
             else Topic.IsChecked = false;
         }
 
@@ -94,16 +95,24 @@ namespace Editor
 
         private void UpdateListBoxQuestions<T>(List<T> list)
         {
-            ListBoxTheory.IsEnabled = false;
+            ListBoxTheory.Visibility = Visibility.Hidden;
+            ListBoxQuestions.Visibility = Visibility.Visible;
             ListBoxQuestions.ItemsSource = null;
             ListBoxQuestions.ItemsSource = list;
         }
 
         private void UpdateListBoxTheory(List<Theory> list)
         {
-            ListBoxQuestions.IsEnabled = false;
+            ListBoxTheory.Visibility = Visibility.Visible;
+            ListBoxQuestions.Visibility = Visibility.Hidden;
             ListBoxTheory.ItemsSource = null;
             ListBoxTheory.ItemsSource = list;
+        }
+
+        public void UpdateListBoxTopics()
+        {
+            ListBoxTopics.ItemsSource = null;
+            ListBoxTopics.ItemsSource = edcl.GetListTopics();
         }
 
         public void RadioButtonUpdate()
@@ -135,11 +144,13 @@ namespace Editor
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
             edcl.AddButtonClick();
+            RadioButtonUpdate();
         }
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
             edcl.DeleteButtonClick(GetCheckedRadioButtonName());
+            RadioButtonUpdate();
         }
 
         private void ListBoxQuestions_SelectionChanged(object sender, SelectionChangedEventArgs e)

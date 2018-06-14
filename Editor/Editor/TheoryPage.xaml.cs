@@ -32,13 +32,16 @@ namespace Editor
 
         private void ButtonAdd_Click()
         {
-            var newtheory = new Theory()
+            if (!String.IsNullOrWhiteSpace(TextBoxTheory.Text))
             {
-                Text = TextBoxTheory.Text,
-                TopicId = edcl.SelectedTopic.Id
-            };
-            edcl.AddTheory(newtheory);
-            Clear();
+                var newtheory = new Theory()
+                {
+                    Text = TextBoxTheory.Text,
+                    TopicId = edcl.SelectedTopic.Id
+                };
+                edcl.AddTheory(newtheory);
+                Clear();
+            }
         }
 
         public void Clear()

@@ -17,7 +17,6 @@ namespace Editor
         public static EditorClass GetEditorClass() => _edcl ?? (_edcl = new EditorClass());
 
         public event Action AddClick;
-        public event Action AddQ;
         private static Context ctx = new Context();
         public Subject SelectedSubject;
         public Topic SelectedTopic;
@@ -42,6 +41,7 @@ namespace Editor
                 case "Topic": DeleteTopic(); break;
                 case "Question1": DeleteQuestion1(); break;
                 case "Question2": DeleteQuestion2(); break;
+                case "Theory": DeleteTheory(); break;
             }
         }
 
@@ -50,7 +50,6 @@ namespace Editor
             ctx.Questions1.AddOrUpdate(q => q.Question, newquestion);
             ctx.SaveChanges();
             Update("../../../../EducationApp.Classes/Data", "Questions1.json", ctx.Questions1.ToList());
-            AddQ();
         }
 
         public void AddQuestion2(QuestionModel2 newquestion)
@@ -58,7 +57,6 @@ namespace Editor
             ctx.Questions2.AddOrUpdate(q => q.Question, newquestion);
             ctx.SaveChanges();
             Update("../../../../EducationApp.Classes/Data", "Questions2.json", ctx.Questions2.ToList());
-            AddQ();
         }
 
         public void AddSubject(Subject newsubject)
@@ -126,7 +124,6 @@ namespace Editor
             ctx.Questions1.Remove(SelectedQuestion1);
             ctx.SaveChanges();
             Update("../../../../EducationApp.Classes/Data", "Questions1.json", ctx.Questions1.ToList());
-            AddQ();
         }
 
         public void DeleteQuestion2()
@@ -134,7 +131,13 @@ namespace Editor
             ctx.Questions2.Remove(SelectedQuestion2);
             ctx.SaveChanges();
             Update("../../../../EducationApp.Classes/Data", "Questions2.json", ctx.Questions2.ToList());
-            AddQ();
+        }
+
+        public void DeleteTheory()
+        {
+            ctx.Theories.Remove(SelectedTheory);
+            ctx.SaveChanges();
+            Update("../../../../EducationApp.Classes/Data", "Theories.json", ctx.Theories.ToList());
         }
 
         /* public void UpdateAll()

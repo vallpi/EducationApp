@@ -31,8 +31,12 @@ namespace Editor
 
         private void ButtonAdd_Click()
         {
-            if (TextBoxQuestion.Text != null && TextBoxAnswer1.Text != null && TextBoxAnswer2.Text != null 
-                && TextBoxAnswer3.Text != null && TextBoxAnswer4.Text != null && TextBoxQuestionNumber.Text != null)
+            if (!String.IsNullOrWhiteSpace(TextBoxQuestion.Text) &&
+                !String.IsNullOrWhiteSpace(TextBoxAnswer1.Text) &&
+                !String.IsNullOrWhiteSpace(TextBoxAnswer2.Text) &&
+                !String.IsNullOrWhiteSpace(TextBoxAnswer3.Text) &&
+                !String.IsNullOrWhiteSpace(TextBoxAnswer4.Text) &&
+                !String.IsNullOrWhiteSpace(TextBoxQuestionNumber.Text))
             {
                 var newquestion = new QuestionModel1
                 {

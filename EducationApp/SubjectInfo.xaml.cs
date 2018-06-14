@@ -107,7 +107,7 @@ namespace EducationApp
             {
                 var theory = _repo.GetTopicTheory(topic_name);
                 for (int i = 0; i < theory.Count; i++)
-                    textBlock_ThemeTheory.Text += theory[i] + Environment.NewLine;
+                    textBlock_ThemeTheory.Text += theory[i].Text + Environment.NewLine;
             }
         }
 

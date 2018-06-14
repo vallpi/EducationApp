@@ -32,12 +32,15 @@ namespace Editor
 
         private void ButtonAdd_Click()
         {
-            var newsubject = new Subject
+            if (!String.IsNullOrWhiteSpace(TextBoxSubjectName.Text))
             {
-                Name = TextBoxSubjectName.Text
-            };
-            edcl.AddSubject(newsubject);
-            Clear();
+                var newsubject = new Subject
+                {
+                    Name = TextBoxSubjectName.Text
+                };
+                edcl.AddSubject(newsubject);
+                Clear();
+            }
         }
 
         public void Clear()

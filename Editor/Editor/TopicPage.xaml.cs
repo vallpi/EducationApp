@@ -31,13 +31,16 @@ namespace Editor
 
         private void ButtonAdd_Click()
         {
-            var newtopic = new Topic
+            if (!String.IsNullOrWhiteSpace(TextBoxTopicName.Text))
             {
-                Name = TextBoxTopicName.Text,
-                SubjectId = edcl.SelectedSubject.Id
-            };
-            edcl.AddTopic(newtopic);
-            Clear();
+                var newtopic = new Topic
+                {
+                    Name = TextBoxTopicName.Text,
+                    SubjectId = edcl.SelectedSubject.Id
+                };
+                edcl.AddTopic(newtopic);
+                Clear();
+            }
         }
 
         public void Clear()

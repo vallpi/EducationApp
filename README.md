@@ -63,3 +63,5 @@ v 0.3.6.1 Added QuestionNumber fields to QuestionModel1 and QuestionModel2. Rede
 v 0.3.6.2 Fixed problem with QuestionNumber. (by Pyashy)
 
 v 0.3.6.3 Fixed some details related to Editor. (by Pyashy)
+
+v 0.3.6.4 Fixed some details in Editor. (by Pyashy)
