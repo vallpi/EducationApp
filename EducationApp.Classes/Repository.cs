@@ -29,7 +29,7 @@ namespace App.Classes
         private Data _data = new Data();
         private User _authorizedUser;
         private Subject SelectedSubject;
-        private const string DataFolder = "../App.Classes/Data";
+        private const string DataFolder = "../../../EducationApp.Classes/Data";
         private const string FileName = "Info.json";
         // Кодировка пароля
         private static string GetHash(string password)
@@ -228,7 +228,8 @@ namespace App.Classes
                     var e = _authorizedUser.TestResults.Where(s => s.TopicId == SelectedTopic.Id).First();
                     e.Score = score;
                     var testres = ctx.TestResults.Where(t => t.UserId == _authorizedUser.Id).Where(k => k.TopicId == SelectedTopic.Id).First();
-                    ctx.TestResults.AddOrUpdate(u => u.TopicId, testres);
+                    testres.Score = score;
+                    ctx.TestResults.AddOrUpdate(testres);
                     ctx.SaveChanges();
                 }
             }
